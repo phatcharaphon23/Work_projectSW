@@ -1,0 +1,39 @@
+import 'package:flutter/material.dart';
+import 'package:ranya/states/Profile.dart';
+import 'package:ranya/states/create_account.dart';
+import 'package:ranya/states/history_screen.dart';
+import 'package:ranya/states/home.dart';
+import 'package:ranya/states/information_screen.dart';
+import 'package:ranya/states/login.dart';
+import 'package:ranya/states/packaging_screen.dart';
+import 'package:ranya/utility/my_constant.dart';
+
+final Map<String, WidgetBuilder> map = {
+  '/home': (BuildContext context) => const HomeScreen(),
+  '/my_login': (BuildContext context) => const Login(),
+  '/create_account': (BuildContext context) => const CreateAccount(),
+  '/packaging_screen': (BuildContext context) => const PackagingScreen(),
+  '/history_screen': (BuildContext context) => const HistoryScreen(),
+  '/histor/information_screen': (BuildContext context) =>
+      const InformationScreen(),
+  '/profile': (BuildContext context) => const ProfileScreen(),
+};
+
+String? initlalRoute;
+void main() {
+  initlalRoute = Myconstant.routePackagingScreen;
+  runApp(const MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: Myconstant.appName,
+      routes: map,
+      initialRoute: initlalRoute,
+    );
+  }
+}
