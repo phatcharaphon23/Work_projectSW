@@ -21,7 +21,7 @@ final Map<String, WidgetBuilder> map = {
 
 String? initlalRoute;
 void main() {
-  initlalRoute = Myconstant.routePackagingScreen;
+  initlalRoute = Myconstant.routeHome;
   runApp(const MyApp());
 }
 

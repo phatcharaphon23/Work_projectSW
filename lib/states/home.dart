@@ -44,22 +44,22 @@ class HomeScreen extends StatelessWidget {
                         fontStyle: FontStyle.italic,
                         color: Colors.white54),
                   ),
-                  // Container(
-                  //   margin: EdgeInsets.symmetric(vertical: 40),
-                  //   padding:
-                  //       EdgeInsets.symmetric(horizontal: 25, vertical: 3.5),
-                  //   decoration: BoxDecoration(
-                  //     color: Colors.white,
-                  //     borderRadius: BorderRadius.circular(30),
-                  //   ),
-                  //   child: TextField(
-                  //     decoration: InputDecoration(
-                  //       hintText: "Search",
-                  //       icon: Icon(Icons.search),
-                  //       border: InputBorder.none,
-                  //     ),
-                  //   ),
-                  // ),
+                  Container(
+                    margin: EdgeInsets.symmetric(vertical: 40),
+                    padding:
+                        EdgeInsets.symmetric(horizontal: 25, vertical: 3.5),
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(30),
+                    ),
+                    child: TextField(
+                      decoration: InputDecoration(
+                        hintText: "Search",
+                        icon: Icon(Icons.search),
+                        border: InputBorder.none,
+                      ),
+                    ),
+                  ),
                   Expanded(
                     child: GridView.count(
                       crossAxisCount: 2,
@@ -74,7 +74,7 @@ class HomeScreen extends StatelessWidget {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (context) =>  PackagingScreen(),
+                                builder: (context) => const PackagingScreen(),
                               ),
                             );
                           },
@@ -82,9 +82,7 @@ class HomeScreen extends StatelessWidget {
                         CategoryCard(
                           title: "Information",
                           svgSrc: "assets/icons/supplements.png",
-                          onpress: () {
-                            Navigator.pushNamed(context, '/authen');
-                          },
+                          onpress: () {},
                         ),
                         CategoryCard(
                           title: "History",
