@@ -67,33 +67,84 @@ class HomeScreen extends StatelessWidget {
                       crossAxisSpacing: 20,
                       mainAxisSpacing: 25,
                       children: <Widget>[
-                        CategoryCard(
-                          title: "Packaging",
-                          svgSrc: "assets/icons/export.png",
-                          onpress: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => const PackagingScreen(),
-                              ),
-                            );
-                          },
+                        Column(
+                          children: [
+                            TextButton(
+                              onPressed: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) =>
+                                        const PackagingScreen(),
+                                  ),
+                                );
+                              },
+                              child: Text("PackagingScreen"),
+                            ),
+                            TextButton(
+                              onPressed: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) =>
+                                        const PackagingScreen(),
+                                  ),
+                                );
+                              },
+                              child: Text("History"),
+                            ),
+                            TextButton(
+                              onPressed: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) =>
+                                        const PackagingScreen(),
+                                  ),
+                                );
+                              },
+                              child: Text("ข้อมูลยา"),
+                            ),
+                            TextButton(
+                                onPressed: () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) =>
+                                          const PackagingScreen(),
+                                    ),
+                                  );
+                                },
+                                child: Text("เช็คสถานะ")),
+                          ],
                         ),
-                        CategoryCard(
-                          title: "Information",
-                          svgSrc: "assets/icons/supplements.png",
-                          onpress: () {},
-                        ),
-                        CategoryCard(
-                          title: "History",
-                          svgSrc: "assets/icons/timetable.png",
-                          onpress: () {},
-                        ),
-                        CategoryCard(
-                          title: "แปะไว้ก่อน",
-                          svgSrc: "assets/icons/test.png",
-                          onpress: () {},
-                        ),
+                        // CategoryCard(
+                        //   title: "Packaging",
+                        //   svgSrc: "assets/icons/export.png",
+                        //   onpress: () {
+                        //     Navigator.push(
+                        //       context,
+                        //       MaterialPageRoute(
+                        //         builder: (context) => const PackingScreen(),
+                        //       ),
+                        //     );
+                        //   },
+                        // ),
+                        // CategoryCard(
+                        //   title: "Information",
+                        //   svgSrc: "assets/icons/supplements.png",
+                        //   onpress: () {},
+                        // ),
+                        // CategoryCard(
+                        //   title: "History",
+                        //   svgSrc: "assets/icons/timetable.png",
+                        //   onpress: () {},
+                        // ),
+                        // CategoryCard(
+                        //   title: "แปะไว้ก่อน",
+                        //   svgSrc: "assets/icons/test.png",
+                        //   onpress: () {},
+                        // ),
                       ],
                     ),
                   ),
