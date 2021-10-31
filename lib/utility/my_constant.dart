@@ -13,6 +13,7 @@ class Myconstant {
   static String routeInformationScreen = '/information_screen';
   static String routeProfileScreen = '/profile_screen';
   static String routeCheckStatusScreen = '/check_status_screen';
+  static String routeScannerScreen = '/scanner_screen';
 
   // Image
   static String images1 = 'assets/images1.png';

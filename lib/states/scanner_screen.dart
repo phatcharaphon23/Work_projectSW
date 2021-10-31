@@ -1,15 +1,14 @@
-// ignore: file_names
 import 'package:flutter/material.dart';
 import 'package:ranya/utility/my_constant.dart';
 
-class ProfileScreen extends StatefulWidget {
-  const ProfileScreen({Key? key}) : super(key: key);
+class ScannerScreen extends StatefulWidget {
+  const ScannerScreen({Key? key}) : super(key: key);
 
   @override
-  _ProfileScreenState createState() => _ProfileScreenState();
+  _ScannerScreenState createState() => _ScannerScreenState();
 }
 
-class _ProfileScreenState extends State<ProfileScreen> {
+class _ScannerScreenState extends State<ScannerScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

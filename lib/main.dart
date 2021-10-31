@@ -7,6 +7,7 @@ import 'package:ranya/states/home.dart';
 import 'package:ranya/states/information_screen.dart';
 import 'package:ranya/states/login.dart';
 import 'package:ranya/states/packaging_screengg.dart';
+import 'package:ranya/states/scanner_screen.dart';
 import 'package:ranya/utility/my_constant.dart';
 
 final Map<String, WidgetBuilder> map = {
@@ -19,6 +20,7 @@ final Map<String, WidgetBuilder> map = {
       const InformationScreen(),
   '/profile': (BuildContext context) => const ProfileScreen(),
   '/check_status_screen': (BuildContext context) => const CheckStatusScreen(),
+  '/scanner_screen': (BuildContext context) => const ScannerScreen(),
 };
 
 String? initlalRoute;

@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:ranya/states/home.dart';
+import 'package:ranya/states/profile.dart';
+import 'package:ranya/states/scanner_screen.dart';
 import 'package:ranya/utility/my_constant.dart';
 
 class BottomNavBar extends StatelessWidget {
@@ -18,20 +21,39 @@ class BottomNavBar extends StatelessWidget {
           BottomNaItem(
             title: "Home",
             svgScr: "assets/icons/home2.png",
-            onpress: () => Navigator.pushNamed(context, Myconstant.routeHome),
+            onpress: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const HomeScreen(),
+                ),
+              );
+            },
           ),
           BottomNaItem(
             svgScr: "assets/icons/scan.png",
             title: "Scan",
-            onpress: () {},
+            onpress: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const ScannerScreen(),
+                ),
+              );
+            },
             isActive: true,
           ),
           BottomNaItem(
-            svgScr: "assets/icons/profile.png",
-            title: "Profile",
-            onpress: () =>
-                Navigator.pushNamed(context, Myconstant.routeProfileScreen),
-          ),
+              svgScr: "assets/icons/profile.png",
+              title: "Profile",
+              onpress: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const ProfileScreen(),
+                  ),
+                );
+              }),
         ],
       ),
     );
