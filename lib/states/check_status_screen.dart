@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:ranya/utility/my_constant.dart';
 
-class InformationScreen extends StatefulWidget {
-  const InformationScreen({Key? key}) : super(key: key);
+class CheckStatusScreen extends StatefulWidget {
+  const CheckStatusScreen({Key? key}) : super(key: key);
 
   @override
-  _InformationScreenState createState() => _InformationScreenState();
+  _CheckStatusScreenState createState() => _CheckStatusScreenState();
 }
 
-class _InformationScreenState extends State<InformationScreen> {
+class _CheckStatusScreenState extends State<CheckStatusScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

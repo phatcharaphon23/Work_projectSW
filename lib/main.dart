@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:ranya/states/Profile.dart';
+import 'package:ranya/states/check_status_screen.dart';
 import 'package:ranya/states/create_account.dart';
 import 'package:ranya/states/history_screen.dart';
 import 'package:ranya/states/home.dart';
 import 'package:ranya/states/information_screen.dart';
 import 'package:ranya/states/login.dart';
-import 'package:ranya/states/packaging_screen.dart';
+import 'package:ranya/states/packaging_screengg.dart';
 import 'package:ranya/utility/my_constant.dart';
 
 final Map<String, WidgetBuilder> map = {
@@ -17,6 +18,7 @@ final Map<String, WidgetBuilder> map = {
   '/histor/information_screen': (BuildContext context) =>
       const InformationScreen(),
   '/profile': (BuildContext context) => const ProfileScreen(),
+  '/check_status_screen': (BuildContext context) => const CheckStatusScreen(),
 };
 
 String? initlalRoute;

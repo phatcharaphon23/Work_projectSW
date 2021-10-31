@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:ranya/TabBar/bottom_nav_bar.dart';
 import 'package:ranya/TabBar/category_card.dart';
-import 'package:ranya/states/packaging_screen.dart';
+import 'package:ranya/states/history_screen.dart';
+import 'package:ranya/states/information_screen.dart';
+import 'package:ranya/states/packaging_screengg.dart';
 import 'package:ranya/utility/my_constant.dart';
+
+import 'check_status_screen.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -67,57 +71,60 @@ class HomeScreen extends StatelessWidget {
                       crossAxisSpacing: 20,
                       mainAxisSpacing: 25,
                       children: <Widget>[
-                        Column(
+                        Row(
+                          children: [
+                            // ignore: deprecated_member_use
+                            TextButton(
+                              onPressed: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) =>
+                                        const PackagingScreen(),
+                                  ),
+                                );
+                              },
+                              child: const Text("แพ็คกล่องยา"),
+                            ),
+                          ],
+                        ),
+                        Row(
                           children: [
                             TextButton(
                               onPressed: () {
                                 Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                    builder: (context) =>
-                                        const PackagingScreen(),
+                                    builder: (context) => const HistoryScreen(),
                                   ),
                                 );
                               },
-                              child: Text("PackagingScreen"),
+                              child: const Text("ประวัติ"),
                             ),
-                            TextButton(
-                              onPressed: () {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (context) =>
-                                        const PackagingScreen(),
-                                  ),
-                                );
-                              },
-                              child: Text("History"),
-                            ),
-                            TextButton(
-                              onPressed: () {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (context) =>
-                                        const PackagingScreen(),
-                                  ),
-                                );
-                              },
-                              child: Text("ข้อมูลยา"),
-                            ),
-                            TextButton(
-                                onPressed: () {
-                                  Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                      builder: (context) =>
-                                          const PackagingScreen(),
-                                    ),
-                                  );
-                                },
-                                child: Text("เช็คสถานะ")),
                           ],
                         ),
+                        TextButton(
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => const InformationScreen(),
+                              ),
+                            );
+                          },
+                          child: const Text("ข้อมูลยา"),
+                        ),
+                        TextButton(
+                            onPressed: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) =>
+                                      const CheckStatusScreen(),
+                                ),
+                              );
+                            },
+                            child: const Text("เช็คสถานะ")),
                         // CategoryCard(
                         //   title: "Packaging",
                         //   svgSrc: "assets/icons/export.png",
