@@ -24,7 +24,7 @@ class _PackagingScreenState extends State<PackagingScreen> {
             elevation: 0,
             backgroundColor: Myconstant.primary,
             // titleTextStyle: Myconstant().h2Style(),
-            
+
             bottom: TabBar(
                 labelColor: Myconstant.dark,
                 unselectedLabelColor: Colors.white,
@@ -57,8 +57,6 @@ class _PackagingScreenState extends State<PackagingScreen> {
                     ),
                   ),
                 ]),
-                
-              
           ),
           body: const TabBarView(
             children: [
@@ -67,7 +65,6 @@ class _PackagingScreenState extends State<PackagingScreen> {
               Icon(Icons.app_blocking),
             ],
           ),
-
         ),
       ),
     );
@@ -120,5 +117,4 @@ class _PackagingScreenState extends State<PackagingScreen> {
       ),
     );
   }
-  
 }
