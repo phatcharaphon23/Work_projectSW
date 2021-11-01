@@ -25,9 +25,10 @@ class Myconstant {
   static String images7 = 'assets/images7.png';
 
   // Color
-  static Color primary = Color(0xff9575cd);
-  static Color dark = Color(0xff65499c);
-  static Color light = Color(0xffc7a4ff);
+  static Color primary = const Color(0xff9575cd);
+  static Color dark = const Color(0xff65499c);
+  static Color light = const Color(0xffc7a4ff);
+  
 
   //Style
   TextStyle h1Style() => TextStyle(
@@ -50,6 +51,7 @@ class Myconstant {
         color: dark,
         fontWeight: FontWeight.normal,
       );
+  // ignore: prefer_const_constructors
   TextStyle h3WhiteStyle() => TextStyle(
         fontSize: 14,
         color: Colors.white,

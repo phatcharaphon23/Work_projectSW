@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:ranya/TabBar/bottom_nav_bar.dart';
-import 'package:ranya/TabBar/category_card.dart';
 import 'package:ranya/states/history_screen.dart';
 import 'package:ranya/states/information_screen.dart';
 import 'package:ranya/states/packaging_screengg.dart';
@@ -49,16 +48,19 @@ class HomeScreen extends StatelessWidget {
                         color: Colors.white54),
                   ),
                   Container(
-                    margin: EdgeInsets.symmetric(vertical: 40),
-                    padding:
-                        EdgeInsets.symmetric(horizontal: 25, vertical: 3.5),
+                    margin: const EdgeInsets.symmetric(vertical: 40),
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 25, vertical: 3.5),
                     decoration: BoxDecoration(
                       color: Colors.white,
                       borderRadius: BorderRadius.circular(30),
                     ),
+                    // ignore: prefer_const_constructors
                     child: TextField(
+                      // ignore: prefer_const_constructors
                       decoration: InputDecoration(
                         hintText: "Search",
+                        // ignore: prefer_const_constructors
                         icon: Icon(Icons.search),
                         border: InputBorder.none,
                       ),
@@ -71,37 +73,51 @@ class HomeScreen extends StatelessWidget {
                       crossAxisSpacing: 20,
                       mainAxisSpacing: 25,
                       children: <Widget>[
-                        Row(
-                          children: [
-                            // ignore: deprecated_member_use
-                            TextButton(
-                              onPressed: () {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (context) =>
-                                        const PackagingScreen(),
-                                  ),
-                                );
-                              },
-                              child: const Text("แพ็คกล่องยา"),
+                        TextButton(
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => const PackagingScreen(),
+                              ),
+                            );
+                          },
+                          child: Container(
+                            padding: const EdgeInsets.all(20),
+                            child: Column(
+                              children: <Widget>[
+                                Image.asset("assets/icons/export.png"),
+                                const Text(
+                                  "แพ็คกล่องยา",
+                                  style: TextStyle(
+                                      color: Colors.black, fontSize: 16.0),
+                                ),
+                              ],
                             ),
-                          ],
+                          ),
                         ),
-                        Row(
-                          children: [
-                            TextButton(
-                              onPressed: () {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (context) => const HistoryScreen(),
-                                  ),
-                                );
-                              },
-                              child: const Text("ประวัติ"),
+                        TextButton(
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => const HistoryScreen(),
+                              ),
+                            );
+                          },
+                          child: Container(
+                            padding: const EdgeInsets.all(20),
+                            child: Column(
+                              children: <Widget>[
+                                Image.asset("assets/icons/timetable.png"),
+                                const Text(
+                                  "ประวัติ",
+                                  style: TextStyle(
+                                      color: Colors.black, fontSize: 16.0),
+                                ),
+                              ],
                             ),
-                          ],
+                          ),
                         ),
                         TextButton(
                           onPressed: () {
@@ -112,19 +128,45 @@ class HomeScreen extends StatelessWidget {
                               ),
                             );
                           },
-                          child: const Text("ข้อมูลยา"),
+                          child: Container(
+                            padding: const EdgeInsets.all(20),
+                            child: Column(
+                              children: <Widget>[
+                                Image.asset("assets/icons/supplements.png"),
+                                const Text(
+                                  "ข้อมูลยา",
+                                  style: TextStyle(
+                                      color: Colors.black, fontSize: 16.0),
+                                ),
+                              ],
+                            ),
+                          ),
                         ),
                         TextButton(
-                            onPressed: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) =>
-                                      const CheckStatusScreen(),
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => const CheckStatusScreen(),
+                              ),
+                            );
+                          },
+                          child: Container(
+                            padding: const EdgeInsets.all(20),
+                            child: Column(
+                              children: <Widget>[
+                                Image.asset("assets/icons/test.png"),
+                                const Text(
+                                  "เช็คสถานะ",
+                                  // textAlign: TextAlign.center,
+                                  style: TextStyle(
+                                      color: Colors.black, fontSize: 16.0),
                                 ),
-                              );
-                            },
-                            child: const Text("เช็คสถานะ")),
+                              ],
+                            ),
+                          ),
+                        ),
+
                         // CategoryCard(
                         //   title: "Packaging",
                         //   svgSrc: "assets/icons/export.png",

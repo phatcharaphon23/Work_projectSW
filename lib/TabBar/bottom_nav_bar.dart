@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:ranya/states/home.dart';
-import 'package:ranya/states/profile.dart';
+import 'package:ranya/states/Profile/profile.dart';
 import 'package:ranya/states/scanner_screen.dart';
-import 'package:ranya/utility/my_constant.dart';
 
 class BottomNavBar extends StatelessWidget {
   const BottomNavBar({
@@ -50,7 +49,7 @@ class BottomNavBar extends StatelessWidget {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => const ProfileScreen(),
+                    builder: (context) => ProfileScreen(),
                   ),
                 );
               }),

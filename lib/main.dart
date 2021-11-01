@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:ranya/states/Profile.dart';
+import 'package:ranya/states/Profile/profile.dart';
+
 import 'package:ranya/states/check_status_screen.dart';
 import 'package:ranya/states/create_account.dart';
 import 'package:ranya/states/history_screen.dart';
