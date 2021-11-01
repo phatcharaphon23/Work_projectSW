@@ -12,7 +12,6 @@ class _PackagingScreenState extends State<PackagingScreen> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Packaging',
       theme: ThemeData(
         primarySwatch: Colors.purple,
       ),
@@ -23,19 +22,34 @@ class _PackagingScreenState extends State<PackagingScreen> {
           appBar: AppBar(
             elevation: 0,
             backgroundColor: Myconstant.primary,
+            // ignore: prefer_const_constructors
+            actions: <Widget>[
+              IconButton(
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                  icon: const Icon(
+                    Icons.arrow_back,
+                    color: Colors.white,
+                  ))
+            ],
+            // leading: Icon(
+            //   Icons.arrow_back,
+            //   color: Colors.white,
+            // ),
             // titleTextStyle: Myconstant().h2Style(),
 
             bottom: TabBar(
                 labelColor: Myconstant.dark,
                 unselectedLabelColor: Colors.white,
-                indicator: BoxDecoration(
-                  borderRadius: const BorderRadius.only(
+                indicator: const BoxDecoration(
+                  borderRadius: BorderRadius.only(
                     topLeft: Radius.circular(10),
                     topRight: Radius.circular(10),
                   ),
                   color: Colors.white,
                 ),
-                tabs: [
+                tabs: const [
                   Tab(
                     child: Align(
                       alignment: Alignment.center,
@@ -51,7 +65,7 @@ class _PackagingScreenState extends State<PackagingScreen> {
                     ),
                   ),
                   Tab(
-                    child: const Align(
+                    child: Align(
                       alignment: Alignment.center,
                       child: Text("วันหมดอายุ"),
                     ),
@@ -85,7 +99,7 @@ class _PackagingScreenState extends State<PackagingScreen> {
                 borderRadius: BorderRadius.circular(50),
                 color: Myconstant.primary,
               ),
-              tabs: [
+              tabs: const [
                 Tab(
                   child: Align(
                     alignment: Alignment.center,
@@ -95,13 +109,13 @@ class _PackagingScreenState extends State<PackagingScreen> {
                 Tab(
                   child: Align(
                     alignment: Alignment.center,
-                    child: const Text("Lot"),
+                    child: Text("Lot"),
                   ),
                 ),
                 Tab(
                   child: Align(
                     alignment: Alignment.center,
-                    child: const Text("วันหมดอายุ"),
+                    child: Text("วันหมดอายุ"),
                   ),
                 ),
               ]),
