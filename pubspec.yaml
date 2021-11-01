@@ -37,6 +37,12 @@ dependencies:
   dio: ^4.0.0
   flutter_svg: ^0.23.0+1
   color: ^3.0.0
+  flutter_launcher_icons: ^0.9.2
+
+flutter_icons:
+  android: true
+  image_path: "assets/images6.png"
+
 
 dev_dependencies:
   flutter_test:
