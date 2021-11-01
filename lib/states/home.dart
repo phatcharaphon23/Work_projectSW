@@ -20,7 +20,7 @@ class HomeScreen extends StatelessWidget {
           Container(
             height: size * 0.8,
             decoration: BoxDecoration(
-              color: Myconstant.primary,
+              color: Myconstant.dark,
             ),
           ),
           SafeArea(

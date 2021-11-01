@@ -16,7 +16,7 @@ class _CreateAccountState extends State<ProfileScreen> {
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
-        backgroundColor: Myconstant.primary,
+        backgroundColor: Myconstant.dark,
       ),
       body: SafeArea(
         child: GestureDetector(

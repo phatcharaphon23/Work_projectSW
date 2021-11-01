@@ -14,7 +14,7 @@ class _ScannerScreenState extends State<ScannerScreen> {
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
-        backgroundColor: Myconstant.primary,
+        backgroundColor: Myconstant.dark,
       ),
     );
   }

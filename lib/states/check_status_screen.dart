@@ -14,7 +14,7 @@ class _CheckStatusScreenState extends State<CheckStatusScreen> {
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
-        backgroundColor: Myconstant.primary,
+        backgroundColor: Myconstant.dark,
       ),
     );
   }

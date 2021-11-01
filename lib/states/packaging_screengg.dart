@@ -21,18 +21,18 @@ class _PackagingScreenState extends State<PackagingScreen> {
           backgroundColor: Colors.white,
           appBar: AppBar(
             elevation: 0,
-            backgroundColor: Myconstant.primary,
+            backgroundColor: Myconstant.dark,
             // ignore: prefer_const_constructors
-            actions: <Widget>[
-              IconButton(
-                  onPressed: () {
-                    Navigator.pop(context);
-                  },
-                  icon: const Icon(
-                    Icons.arrow_back,
-                    color: Colors.white,
-                  ))
-            ],
+            leading: IconButton(
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              icon: const Icon(
+                Icons.arrow_back,
+                color: Colors.white,
+              ),
+            ),
+
             // leading: Icon(
             //   Icons.arrow_back,
             //   color: Colors.white,

@@ -14,7 +14,7 @@ class _InformationScreenState extends State<InformationScreen> {
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
-        backgroundColor: Myconstant.primary,
+        backgroundColor: Myconstant.dark,
       ),
     );
   }

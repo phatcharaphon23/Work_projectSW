@@ -24,7 +24,7 @@ class _CreateAccountState extends State<CreateAccount> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('create new account'),
-        backgroundColor: Myconstant.primary,
+        backgroundColor: Myconstant.dark,
       ),
       body: GestureDetector(
         onTap: () => FocusScope.of(context).requestFocus(FocusNode()),
