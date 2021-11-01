@@ -1,6 +1,7 @@
 // ignore: file_names
 import 'package:flutter/material.dart';
 import 'package:ranya/states/login.dart';
+import 'package:ranya/utility/my_constant.dart';
 
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({Key? key}) : super(key: key);
@@ -14,7 +15,8 @@ class _CreateAccountState extends State<ProfileScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Profile"),
+        elevation: 0,
+        backgroundColor: Myconstant.primary,
       ),
       body: SafeArea(
         child: GestureDetector(
