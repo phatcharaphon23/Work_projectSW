@@ -33,12 +33,6 @@ class _PackagingScreenState extends State<PackagingScreen> {
               ),
             ),
 
-            // leading: Icon(
-            //   Icons.arrow_back,
-            //   color: Colors.white,
-            // ),
-            // titleTextStyle: Myconstant().h2Style(),
-
             bottom: TabBar(
                 labelColor: Myconstant.dark,
                 unselectedLabelColor: Colors.white,
