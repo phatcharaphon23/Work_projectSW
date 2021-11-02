@@ -32,22 +32,41 @@ class _PackagingHomeState extends State<PackagingHome> {
         children: <Widget>[
           SizedBox(
             width: size * 0.8,
-            
-            child: TextButton(
-              onPressed: () => {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => const PackagingScreen(),
-                  ),
-                )
-              },
+            child: Column(
+              children: [
+                TextButton(
+                  onPressed: () => {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const PackagingScreen(),
+                      ),
+                    )
+                  },
 
-              // ignore: prefer_const_constructors
-              child: Text(
-                'เพิ่มข้อมูลยาลงกล่อง',
-                style: const TextStyle(color: Colors.black),
-              ),
+                  // ignore: prefer_const_constructors
+                  child: Text(
+                    'เพิ่มข้อมูลยาลงกล่อง',
+                    style: const TextStyle(color: Colors.black),
+                  ),
+                ),
+                TextButton(
+                  onPressed: () => {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const PackagingScreen(),
+                      ),
+                    )
+                  },
+
+                  // ignore: prefer_const_constructors
+                  child: Text(
+                    'ข้อมูลในกล่องยา',
+                    style: const TextStyle(color: Colors.black),
+                  ),
+                ),
+              ],
             ),
           ),
         ],
