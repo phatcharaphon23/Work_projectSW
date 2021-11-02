@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:ranya/TabBar/bottom_nav_bar.dart';
+import 'package:ranya/states/PackagingScreen/packaging1.dart';
 import 'package:ranya/states/history_screen.dart';
 import 'package:ranya/states/information_screen.dart';
-import 'package:ranya/states/packaging_screengg.dart';
+import 'package:ranya/states/PackagingScreen/packaging_screengg.dart';
 import 'package:ranya/utility/my_constant.dart';
 
 import 'check_status_screen.dart';
@@ -78,7 +79,7 @@ class HomeScreen extends StatelessWidget {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => const PackagingScreen(),
+                                builder: (context) => const PackagingHome(),
                               ),
                             );
                           },
