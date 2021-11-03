@@ -3,19 +3,17 @@ import 'package:ranya/TabBar/bottom_nav_bar.dart';
 import 'package:ranya/states/PackagingScreen/packaging1.dart';
 import 'package:ranya/states/history_screen.dart';
 import 'package:ranya/states/information_screen.dart';
-import 'package:ranya/states/PackagingScreen/packaging_screengg.dart';
 import 'package:ranya/utility/my_constant.dart';
-
 import 'check_status_screen.dart';
 
 class HomeScreen extends StatelessWidget {
-  const HomeScreen({Key? key}) : super(key: key);
+   HomeScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     double size = MediaQuery.of(context).size.width;
     return Scaffold(
-      bottomNavigationBar: const BottomNavBar(),
+      bottomNavigationBar:  BottomNavBar(),
       body: Stack(
         children: <Widget>[
           Container(
@@ -26,15 +24,15 @@ class HomeScreen extends StatelessWidget {
           ),
           SafeArea(
             child: Padding(
-              padding: const EdgeInsets.symmetric(
+              padding:  EdgeInsets.symmetric(
                 horizontal: 20,
               ),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
                   Container(
-                    margin: const EdgeInsets.symmetric(vertical: 20),
-                    // ignore: prefer_const_constructors
+                    margin:  EdgeInsets.symmetric(vertical: 20),
+                    // ignore: prefer__ructors
                     child: Align(
                       alignment: Alignment.topRight,
                     ),
@@ -49,19 +47,19 @@ class HomeScreen extends StatelessWidget {
                         color: Colors.white54),
                   ),
                   Container(
-                    margin: const EdgeInsets.symmetric(vertical: 40),
-                    padding: const EdgeInsets.symmetric(
+                    margin:  EdgeInsets.symmetric(vertical: 40),
+                    padding:  EdgeInsets.symmetric(
                         horizontal: 25, vertical: 3.5),
                     decoration: BoxDecoration(
                       color: Colors.white,
                       borderRadius: BorderRadius.circular(30),
                     ),
-                    // ignore: prefer_const_constructors
+                    // ignore: prefer__ructors
                     child: TextField(
-                      // ignore: prefer_const_constructors
+                      // ignore: prefer__ructors
                       decoration: InputDecoration(
                         hintText: "Search",
-                        // ignore: prefer_const_constructors
+                        // ignore: prefer__ructors
                         icon: Icon(Icons.search),
                         border: InputBorder.none,
                       ),
@@ -79,16 +77,16 @@ class HomeScreen extends StatelessWidget {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => const PackagingHome(),
+                                builder: (context) =>  PackagingHome(),
                               ),
                             );
                           },
                           child: Container(
-                            padding: const EdgeInsets.all(20),
+                            padding:  EdgeInsets.all(20),
                             child: Column(
                               children: <Widget>[
                                 Image.asset("assets/icons/export.png"),
-                                const Text(
+                                 Text(
                                   "แพ็คกล่องยา",
                                   style: TextStyle(
                                       color: Colors.black, fontSize: 16.0),
@@ -102,16 +100,16 @@ class HomeScreen extends StatelessWidget {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => const HistoryScreen(),
+                                builder: (context) =>  HistoryScreen(),
                               ),
                             );
                           },
                           child: Container(
-                            padding: const EdgeInsets.all(20),
+                            padding:  EdgeInsets.all(20),
                             child: Column(
                               children: <Widget>[
                                 Image.asset("assets/icons/timetable.png"),
-                                const Text(
+                                 Text(
                                   "ประวัติ",
                                   style: TextStyle(
                                       color: Colors.black, fontSize: 16.0),
@@ -125,16 +123,16 @@ class HomeScreen extends StatelessWidget {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => const InformationScreen(),
+                                builder: (context) =>  InformationScreen(),
                               ),
                             );
                           },
                           child: Container(
-                            padding: const EdgeInsets.all(20),
+                            padding:  EdgeInsets.all(20),
                             child: Column(
                               children: <Widget>[
                                 Image.asset("assets/icons/supplements.png"),
-                                const Text(
+                                 Text(
                                   "ข้อมูลยา",
                                   style: TextStyle(
                                       color: Colors.black, fontSize: 16.0),
@@ -148,16 +146,16 @@ class HomeScreen extends StatelessWidget {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => const CheckStatusScreen(),
+                                builder: (context) =>  CheckStatusScreen(),
                               ),
                             );
                           },
                           child: Container(
-                            padding: const EdgeInsets.all(20),
+                            padding:  EdgeInsets.all(20),
                             child: Column(
                               children: <Widget>[
                                 Image.asset("assets/icons/test.png"),
-                                const Text(
+                                 Text(
                                   "เช็คสถานะ",
                                   // textAlign: TextAlign.center,
                                   style: TextStyle(
@@ -175,7 +173,7 @@ class HomeScreen extends StatelessWidget {
                         //     Navigator.push(
                         //       context,
                         //       MaterialPageRoute(
-                        //         builder: (context) => const PackingScreen(),
+                        //         builder: (context) =>  PackingScreen(),
                         //       ),
                         //     );
                         //   },

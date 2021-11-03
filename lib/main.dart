@@ -12,27 +12,27 @@ import 'package:ranya/states/scanner_screen.dart';
 import 'package:ranya/utility/my_constant.dart';
 
 final Map<String, WidgetBuilder> map = {
-  '/home': (BuildContext context) => const HomeScreen(),
-  '/my_login': (BuildContext context) => const Login(),
-  '/create_account': (BuildContext context) => const CreateAccount(),
-  '/packaging_screen': (BuildContext context) => const PackagingScreen(),
-  '/history_screen': (BuildContext context) => const HistoryScreen(),
+  '/home': (BuildContext context) =>  HomeScreen(),
+  '/my_login': (BuildContext context) =>  Login(),
+  '/create_account': (BuildContext context) =>  CreateAccount(),
+  '/packaging_screen': (BuildContext context) =>  PackagingScreen(),
+  '/history_screen': (BuildContext context) =>  HistoryScreen(),
   '/histor/information_screen': (BuildContext context) =>
-      const InformationScreen(),
-  '/profile': (BuildContext context) => const ProfileScreen(),
-  '/check_status_screen': (BuildContext context) => const CheckStatusScreen(),
-  '/scanner_screen': (BuildContext context) => const ScannerScreen(),
-  '/packaging01': (BuildContext context) => const PackagingScreen(),
+       InformationScreen(),
+  '/profile': (BuildContext context) =>  ProfileScreen(),
+  '/check_status_screen': (BuildContext context) =>  CheckStatusScreen(),
+  '/scanner_screen': (BuildContext context) =>  ScannerScreen(),
+  '/packaging01': (BuildContext context) =>  PackagingScreen(),
 };
 
 String? initlalRoute;
 void main() {
   initlalRoute = Myconstant.routeHome;
-  runApp(const MyApp());
+  runApp( MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+   MyApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

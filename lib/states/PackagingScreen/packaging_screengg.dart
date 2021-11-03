@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:ranya/utility/my_constant.dart';
 
 class PackagingScreen extends StatefulWidget {
   const PackagingScreen({Key? key}) : super(key: key);
@@ -58,11 +57,11 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
           dropdownValue = newValue!;
         });
       },
-      items: <String>['One', 'Two', 'Free', 'Four']
-          .map<DropdownMenuItem<String>>((String value) {
+      items: <String>['ต้นตำรับยาแผนไทย', 'Two', 'Free', 'Four']
+          .map<DropdownMenuItem<String>>((String values) {
         return DropdownMenuItem<String>(
-          value: value,
-          child: Text(value),
+          value: values,
+          child: Text(values),
         );
       }).toList(),
     );

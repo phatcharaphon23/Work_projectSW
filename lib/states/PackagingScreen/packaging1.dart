@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:ranya/states/PackagingScreen/packaging_screengg.dart';
-import 'package:ranya/utility/my_constant.dart';
+import 'package:ranya/states/PackagingScreen/test.dart';
 
 class PackagingHome extends StatefulWidget {
-  const PackagingHome({Key? key}) : super(key: key);
+  PackagingHome({Key? key}) : super(key: key);
 
   @override
   _PackagingHomeState createState() => _PackagingHomeState();
@@ -21,7 +21,7 @@ class _PackagingHomeState extends State<PackagingHome> {
           onPressed: () {
             Navigator.pop(context);
           },
-          icon: const Icon(
+          icon: Icon(
             Icons.arrow_back,
             color: Colors.black,
           ),
@@ -39,15 +39,15 @@ class _PackagingHomeState extends State<PackagingHome> {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => const PackagingScreen(),
+                        builder: (context) => NewPage(),
                       ),
                     )
                   },
 
-                  // ignore: prefer_const_constructors
+                  // ignore: prefer__ructors
                   child: Text(
                     'เพิ่มข้อมูลยาลงกล่อง',
-                    style: const TextStyle(color: Colors.black),
+                    style: TextStyle(color: Colors.black),
                   ),
                 ),
                 TextButton(
@@ -55,15 +55,15 @@ class _PackagingHomeState extends State<PackagingHome> {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => const PackagingScreen(),
+                        builder: (context) => NewPage(),
                       ),
                     )
                   },
 
-                  // ignore: prefer_const_constructors
+                  // ignore: prefer__ructors
                   child: Text(
                     'ข้อมูลในกล่องยา',
-                    style: const TextStyle(color: Colors.black),
+                    style: TextStyle(color: Colors.black),
                   ),
                 ),
               ],

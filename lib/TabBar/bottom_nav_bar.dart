@@ -4,14 +4,14 @@ import 'package:ranya/states/Profile/profile.dart';
 import 'package:ranya/states/scanner_screen.dart';
 
 class BottomNavBar extends StatelessWidget {
-  const BottomNavBar({
+  BottomNavBar({
     Key? key,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 8),
+      padding: EdgeInsets.symmetric(horizontal: 30, vertical: 8),
       height: 60,
       color: Colors.white,
       child: Row(
@@ -24,7 +24,7 @@ class BottomNavBar extends StatelessWidget {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => const HomeScreen(),
+                  builder: (context) => HomeScreen(),
                 ),
               );
             },
@@ -36,7 +36,7 @@ class BottomNavBar extends StatelessWidget {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => const ScannerScreen(),
+                  builder: (context) => ScannerScreen(),
                 ),
               );
             },
@@ -88,7 +88,7 @@ class BottomNaItem extends StatelessWidget {
           ),
           Text(
             title,
-            style: const TextStyle(fontSize: 12),
+            style: TextStyle(fontSize: 12),
           ),
         ],
       ),
