@@ -7,13 +7,13 @@ import 'package:ranya/utility/my_constant.dart';
 import 'check_status_screen.dart';
 
 class HomeScreen extends StatelessWidget {
-   HomeScreen({Key? key}) : super(key: key);
+  HomeScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     double size = MediaQuery.of(context).size.width;
     return Scaffold(
-      bottomNavigationBar:  BottomNavBar(),
+      bottomNavigationBar: BottomNavBar(),
       body: Stack(
         children: <Widget>[
           Container(
@@ -24,14 +24,14 @@ class HomeScreen extends StatelessWidget {
           ),
           SafeArea(
             child: Padding(
-              padding:  EdgeInsets.symmetric(
+              padding: EdgeInsets.symmetric(
                 horizontal: 20,
               ),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
                   Container(
-                    margin:  EdgeInsets.symmetric(vertical: 20),
+                    margin: EdgeInsets.symmetric(vertical: 20),
                     // ignore: prefer__ructors
                     child: Align(
                       alignment: Alignment.topRight,
@@ -47,9 +47,9 @@ class HomeScreen extends StatelessWidget {
                         color: Colors.white54),
                   ),
                   Container(
-                    margin:  EdgeInsets.symmetric(vertical: 40),
-                    padding:  EdgeInsets.symmetric(
-                        horizontal: 25, vertical: 3.5),
+                    margin: EdgeInsets.symmetric(vertical: 40),
+                    padding:
+                        EdgeInsets.symmetric(horizontal: 25, vertical: 3.5),
                     decoration: BoxDecoration(
                       color: Colors.white,
                       borderRadius: BorderRadius.circular(30),
@@ -77,16 +77,16 @@ class HomeScreen extends StatelessWidget {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (context) =>  PackagingHome(),
+                                builder: (context) => PackagingHome(),
                               ),
                             );
                           },
                           child: Container(
-                            padding:  EdgeInsets.all(20),
+                            padding: EdgeInsets.all(20),
                             child: Column(
                               children: <Widget>[
                                 Image.asset("assets/icons/export.png"),
-                                 Text(
+                                Text(
                                   "แพ็คกล่องยา",
                                   style: TextStyle(
                                       color: Colors.black, fontSize: 16.0),
@@ -100,16 +100,16 @@ class HomeScreen extends StatelessWidget {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (context) =>  HistoryScreen(),
+                                builder: (context) => HistoryScreen(),
                               ),
                             );
                           },
                           child: Container(
-                            padding:  EdgeInsets.all(20),
+                            padding: EdgeInsets.all(20),
                             child: Column(
                               children: <Widget>[
                                 Image.asset("assets/icons/timetable.png"),
-                                 Text(
+                                Text(
                                   "ประวัติ",
                                   style: TextStyle(
                                       color: Colors.black, fontSize: 16.0),
@@ -123,16 +123,16 @@ class HomeScreen extends StatelessWidget {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (context) =>  InformationScreen(),
+                                builder: (context) => InformationScreen(),
                               ),
                             );
                           },
                           child: Container(
-                            padding:  EdgeInsets.all(20),
+                            padding: EdgeInsets.all(20),
                             child: Column(
                               children: <Widget>[
                                 Image.asset("assets/icons/supplements.png"),
-                                 Text(
+                                Text(
                                   "ข้อมูลยา",
                                   style: TextStyle(
                                       color: Colors.black, fontSize: 16.0),
@@ -146,16 +146,16 @@ class HomeScreen extends StatelessWidget {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (context) =>  CheckStatusScreen(),
+                                builder: (context) => CheckStatusScreen(),
                               ),
                             );
                           },
                           child: Container(
-                            padding:  EdgeInsets.all(20),
+                            padding: EdgeInsets.all(20),
                             child: Column(
                               children: <Widget>[
                                 Image.asset("assets/icons/test.png"),
-                                 Text(
+                                Text(
                                   "เช็คสถานะ",
                                   // textAlign: TextAlign.center,
                                   style: TextStyle(
@@ -165,34 +165,6 @@ class HomeScreen extends StatelessWidget {
                             ),
                           ),
                         ),
-
-                        // CategoryCard(
-                        //   title: "Packaging",
-                        //   svgSrc: "assets/icons/export.png",
-                        //   onpress: () {
-                        //     Navigator.push(
-                        //       context,
-                        //       MaterialPageRoute(
-                        //         builder: (context) =>  PackingScreen(),
-                        //       ),
-                        //     );
-                        //   },
-                        // ),
-                        // CategoryCard(
-                        //   title: "Information",
-                        //   svgSrc: "assets/icons/supplements.png",
-                        //   onpress: () {},
-                        // ),
-                        // CategoryCard(
-                        //   title: "History",
-                        //   svgSrc: "assets/icons/timetable.png",
-                        //   onpress: () {},
-                        // ),
-                        // CategoryCard(
-                        //   title: "แปะไว้ก่อน",
-                        //   svgSrc: "assets/icons/test.png",
-                        //   onpress: () {},
-                        // ),
                       ],
                     ),
                   ),

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:ranya/states/PackagingScreen/packaging_screengg.dart';
+import 'package:ranya/states/PackagingScreen/packaging_screen.dart';
 import 'package:ranya/states/PackagingScreen/test.dart';
 
 class PackagingHome extends StatefulWidget {
@@ -39,7 +39,7 @@ class _PackagingHomeState extends State<PackagingHome> {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => NewPage(),
+                        builder: (context) => PackgingScreen(),
                       ),
                     )
                   },
