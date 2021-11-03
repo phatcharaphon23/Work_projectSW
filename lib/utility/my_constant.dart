@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class Myconstant {
-  static String appName = 'Ranya';
+  static String appName = 'packing';
   static String domain = 'https://c67f-180-183-234-152.ngrok.io';
 
   //Route

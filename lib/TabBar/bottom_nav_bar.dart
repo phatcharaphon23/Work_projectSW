@@ -1,7 +1,8 @@
+import 'package:barcode_scan2/barcode_scan2.dart';
 import 'package:flutter/material.dart';
-import 'package:ranya/states/home.dart';
-import 'package:ranya/states/Profile/profile.dart';
-import 'package:ranya/states/scanner_screen.dart';
+import 'package:packing/states/home.dart';
+import 'package:packing/states/Profile/profile.dart';
+import 'package:packing/states/scanner_screen.dart';
 
 class BottomNavBar extends StatelessWidget {
   const BottomNavBar({
@@ -32,13 +33,18 @@ class BottomNavBar extends StatelessWidget {
           BottomNaItem(
             svgScr: "assets/icons/scan.png",
             title: "Scan",
-            onpress: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => const ScannerScreen(),
-                ),
-              );
+            onpress: () async{
+
+              var result = await BarcodeScanner.scan();
+              String gg =result.rawContent;
+              print(result.rawContent);
+              
+              // Navigator.push(
+              //   context,
+              //   MaterialPageRoute(
+              //     builder: (context) => const ScannerScreen(),
+              //   ),
+              // );
             },
             isActive: true,
           ),
