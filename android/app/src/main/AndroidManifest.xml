@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.packing">
+    package="com.example.ranya">
    <application
-        android:label="packing"
+        android:label="ranya"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"
