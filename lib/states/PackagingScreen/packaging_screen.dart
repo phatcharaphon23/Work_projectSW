@@ -40,7 +40,6 @@ class _PackgingScreenState extends State<PackgingScreen> {
       ),
       body: Padding(
         padding: EdgeInsets.all(10.0),
-        
         child: Container(
           child: Column(
             children: [
@@ -110,6 +109,14 @@ class _PackgingScreenState extends State<PackgingScreen> {
                 borderRadius: 10,
                 optionValue: "id",
                 optionLabel: "name",
+              ),
+              FormHelper.submitButton(
+                
+                "เพิ่มลงกล่อง",
+                () {},
+                btnColor: Theme.of(context).primaryColor,
+                borderColor: Theme.of(context).primaryColor,
+                txtColor: Colors.black,
               ),
             ],
           ),
