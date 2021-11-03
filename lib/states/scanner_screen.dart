@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:ranya/utility/my_constant.dart';
+import 'package:packing/utility/my_constant.dart';
 
 class ScannerScreen extends StatefulWidget {
   const ScannerScreen({Key? key}) : super(key: key);

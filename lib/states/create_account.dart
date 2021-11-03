@@ -1,8 +1,8 @@
 // ignore: unused_import
 import 'package:flutter/material.dart';
-import 'package:ranya/utility/my_constant.dart';
-import 'package:ranya/utility/my_dialog.dart';
-import 'package:ranya/widgets/show_title.dart';
+import 'package:packing/utility/my_constant.dart';
+import 'package:packing/utility/my_dialog.dart';
+import 'package:packing/widgets/show_title.dart';
 
 class CreateAccount extends StatefulWidget {
   const CreateAccount({Key? key}) : super(key: key);
