@@ -12,9 +12,11 @@ class PackgingScreen extends StatefulWidget {
 class _PackgingScreenState extends State<PackgingScreen> {
   List<dynamic> conntries = [];
   List<dynamic> statesMasters = [];
+  List<dynamic> today = [];
 
   String? countryId;
   String? stateId;
+  String? todayId;
 
   @override
   void initState() {
@@ -23,9 +25,12 @@ class _PackgingScreenState extends State<PackgingScreen> {
     this.conntries.add({"id": 1, "name": "Simple"});
     this.conntries.add({"id": 2, "name": "Variable"});
     this.conntries.add({"id": 3, "name": "haha"});
-    this.statesMasters.add({"id": 1, "name": "1"});
-    this.statesMasters.add({"id": 2, "name": "2"});
-    this.statesMasters.add({"id": 3, "name": "3"});
+    this.statesMasters.add({"id": 01, "name": "1"});
+    this.statesMasters.add({"id": 02, "name": "2"});
+    this.statesMasters.add({"id": 03, "name": "3"});
+    this.today.add({"id": 001, "name": "1"});
+    this.today.add({"id": 002, "name": "2"});
+    this.today.add({"id": 003, "name": "3"});
   }
 
   @override
@@ -59,16 +64,16 @@ class _PackgingScreenState extends State<PackgingScreen> {
                   }
                   return null;
                 },
-                borderColor: Theme.of(context).primaryColor,
-                borderFocusColor: Theme.of(context).primaryColor,
-                borderRadius: 10,
+                borderColor: Myconstant.light,
+                borderFocusColor: Myconstant.light,
+                borderRadius: 15,
                 optionValue: "id",
                 optionLabel: "name",
               ),
               FormHelper.dropDownWidgetWithLabel(
                 context,
                 "เลือก Lot ยา",
-                "lot ยา",
+                "เลือก Lot ยา",
                 this.stateId,
                 this.statesMasters,
                 (onChangedVal) {
@@ -81,9 +86,9 @@ class _PackgingScreenState extends State<PackgingScreen> {
                   }
                   return null;
                 },
-                borderColor: Theme.of(context).primaryColor,
-                borderFocusColor: Theme.of(context).primaryColor,
-                borderRadius: 10,
+                borderColor: Myconstant.light,
+                borderFocusColor: Myconstant.light,
+                borderRadius: 15,
                 optionValue: "id",
                 optionLabel: "name",
               ),
@@ -104,19 +109,21 @@ class _PackgingScreenState extends State<PackgingScreen> {
                   }
                   return null;
                 },
-                borderColor: Theme.of(context).primaryColor,
-                borderFocusColor: Theme.of(context).primaryColor,
-                borderRadius: 10,
+                borderColor: Myconstant.primary,
+                borderFocusColor: Myconstant.light,
+                borderRadius: 15,
                 optionValue: "id",
                 optionLabel: "name",
               ),
-              FormHelper.submitButton(
-                
-                "เพิ่มลงกล่อง",
-                () {},
-                btnColor: Theme.of(context).primaryColor,
-                borderColor: Theme.of(context).primaryColor,
-                txtColor: Colors.black,
+              Padding(
+                padding: const EdgeInsets.all(10.0),
+                child: FormHelper.submitButton(
+                  "เพิ่มลงกล่อง",
+                  () {},
+                  btnColor: Myconstant.dark,
+                  borderColor: Myconstant.dark,
+                  txtColor: Colors.white,
+                ),
               ),
             ],
           ),
