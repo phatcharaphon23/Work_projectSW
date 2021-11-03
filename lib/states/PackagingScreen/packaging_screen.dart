@@ -1,5 +1,3 @@
-import 'dart:ffi';
-
 import 'package:flutter/material.dart';
 import 'package:ranya/utility/my_constant.dart';
 import 'package:snippet_coder_utils/FormHelper.dart';
@@ -13,8 +11,10 @@ class PackgingScreen extends StatefulWidget {
 
 class _PackgingScreenState extends State<PackgingScreen> {
   List<dynamic> conntries = [];
+  List<dynamic> statesMasters = [];
 
   String? countryId;
+  String? stateId;
 
   @override
   void initState() {
@@ -23,6 +23,9 @@ class _PackgingScreenState extends State<PackgingScreen> {
     this.conntries.add({"id": 1, "name": "Simple"});
     this.conntries.add({"id": 2, "name": "Variable"});
     this.conntries.add({"id": 3, "name": "haha"});
+    this.statesMasters.add({"id": 1, "name": "1"});
+    this.statesMasters.add({"id": 2, "name": "2"});
+    this.statesMasters.add({"id": 3, "name": "3"});
   }
 
   @override
@@ -36,31 +39,80 @@ class _PackgingScreenState extends State<PackgingScreen> {
         ),
       ),
       body: Padding(
-        padding: const EdgeInsets.all(10.0),
-        child: Column(
-          children: [
-            FormHelper.dropDownWidget(
-              context,
-              "Select Country",
-              this.countryId,
-              this.conntries,
-              (opnChangedVal) {
-                this.countryId = opnChangedVal;
-                print("Selected Country : $opnChangedVal");
-              },
-              (onValidateVal) {
-                if (onValidateVal == null) {
-                  return 'Pleagse Select Country';
-                }
-                return null;
-              },
-              borderColor: Theme.of(context).primaryColor,
-              borderFocusColor: Theme.of(context).primaryColor,
-              borderRadius: 10,
-              optionValue: "id",
-              optionLabel: "name",
-            )
-          ],
+        padding: EdgeInsets.all(10.0),
+        
+        child: Container(
+          child: Column(
+            children: [
+              FormHelper.dropDownWidgetWithLabel(
+                context,
+                "ชื่อยา",
+                "Select Country",
+                this.countryId,
+                this.conntries,
+                (onChangedVal) {
+                  this.countryId = onChangedVal;
+                  print("Selected Country : $onChangedVal");
+                },
+                (onValidateVal) {
+                  if (onValidateVal == null) {
+                    return 'Pleagse Select Country';
+                  }
+                  return null;
+                },
+                borderColor: Theme.of(context).primaryColor,
+                borderFocusColor: Theme.of(context).primaryColor,
+                borderRadius: 10,
+                optionValue: "id",
+                optionLabel: "name",
+              ),
+              FormHelper.dropDownWidgetWithLabel(
+                context,
+                "เลือก Lot ยา",
+                "lot ยา",
+                this.stateId,
+                this.statesMasters,
+                (onChangedVal) {
+                  this.countryId = onChangedVal;
+                  print("Selected Country : $onChangedVal");
+                },
+                (onValidateVal) {
+                  if (onValidateVal == null) {
+                    return 'Pleagse Select Country';
+                  }
+                  return null;
+                },
+                borderColor: Theme.of(context).primaryColor,
+                borderFocusColor: Theme.of(context).primaryColor,
+                borderRadius: 10,
+                optionValue: "id",
+                optionLabel: "name",
+              ),
+              FormHelper.dropDownWidgetWithLabel(
+                context,
+                "วันหมดอายุ",
+                "วันที่"
+                    "วันหมดอายุ",
+                this.stateId,
+                this.statesMasters,
+                (onChangedVal) {
+                  this.countryId = onChangedVal;
+                  print("Selected Country : $onChangedVal");
+                },
+                (onValidateVal) {
+                  if (onValidateVal == null) {
+                    return 'Pleagse Select Country';
+                  }
+                  return null;
+                },
+                borderColor: Theme.of(context).primaryColor,
+                borderFocusColor: Theme.of(context).primaryColor,
+                borderRadius: 10,
+                optionValue: "id",
+                optionLabel: "name",
+              ),
+            ],
+          ),
         ),
       ),
     );
