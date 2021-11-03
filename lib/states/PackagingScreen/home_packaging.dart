@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ranya/states/PackagingScreen/packaging_screen.dart';
-import 'package:ranya/states/PackagingScreen/test.dart';
+import 'package:ranya/states/PackagingScreen/data.dart';
 
 class PackagingHome extends StatefulWidget {
   PackagingHome({Key? key}) : super(key: key);
@@ -55,7 +55,7 @@ class _PackagingHomeState extends State<PackagingHome> {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => NewPage(),
+                        builder: (context) => DataPage(),
                       ),
                     )
                   },

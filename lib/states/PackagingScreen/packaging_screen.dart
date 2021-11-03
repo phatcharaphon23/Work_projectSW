@@ -116,7 +116,7 @@ class _PackgingScreenState extends State<PackgingScreen> {
                 optionLabel: "name",
               ),
               Padding(
-                padding: const EdgeInsets.all(10.0),
+                padding: EdgeInsets.all(10.0),
                 child: FormHelper.submitButton(
                   "เพิ่มลงกล่อง",
                   () {},
