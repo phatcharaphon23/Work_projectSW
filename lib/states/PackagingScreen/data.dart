@@ -9,9 +9,9 @@ class DataPage extends StatefulWidget {
 }
 
 class _NewPageState extends State<DataPage> {
-  String dropdownValue = 'One';
   @override
   Widget build(BuildContext context) {
+    
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
