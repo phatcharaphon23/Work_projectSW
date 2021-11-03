@@ -1,5 +1,7 @@
 // ignore: unused_import
 import 'package:flutter/material.dart';
+import 'package:packing/api/singup.dart';
+import 'package:packing/states/login.dart';
 import 'package:packing/utility/my_constant.dart';
 import 'package:packing/utility/my_dialog.dart';
 import 'package:packing/widgets/show_title.dart';
@@ -13,11 +15,11 @@ class CreateAccount extends StatefulWidget {
 
 class _CreateAccountState extends State<CreateAccount> {
   final formkey = GlobalKey<FormState>();
-  TextEditingController nameController = TextEditingController();
-  TextEditingController emailController = TextEditingController();
-  TextEditingController phoneController = TextEditingController();
-  TextEditingController passwordController = TextEditingController();
-
+  
+  String name = "";
+  String email = "";
+  String phone = "";
+  String password = "";
   @override
   Widget build(BuildContext context) {
     double size = MediaQuery.of(context).size.width;
@@ -59,7 +61,9 @@ class _CreateAccountState extends State<CreateAccount> {
           margin: const EdgeInsets.only(top: 15),
           width: size * 0.8,
           child: TextFormField(
-            controller: nameController,
+            onChanged: (value) {
+                    name = value;
+                  },
             validator: (value) {
               if (value!.isEmpty) {
                 return "Please complete your name";
@@ -95,7 +99,9 @@ class _CreateAccountState extends State<CreateAccount> {
           margin: const EdgeInsets.only(top: 20),
           width: size * 0.8,
           child: TextFormField(
-            controller: emailController,
+          onChanged: (value) {
+                    email = value;
+                  },
             validator: (value) {
               if (value!.isEmpty) {
                 return "Please enter your email";
@@ -131,7 +137,9 @@ class _CreateAccountState extends State<CreateAccount> {
           margin: const EdgeInsets.only(top: 20),
           width: size * 0.8,
           child: TextFormField(
-            controller: phoneController,
+     onChanged: (value) {
+                    phone = value;
+                  },
             keyboardType: TextInputType.phone,
             validator: (value) {
               if (value!.isEmpty) {
@@ -168,7 +176,9 @@ class _CreateAccountState extends State<CreateAccount> {
           margin: const EdgeInsets.only(top: 20),
           width: size * 0.8,
           child: TextFormField(
-            controller: passwordController,
+          onChanged: (value) {
+                    password = value;
+                  },
             validator: (value) {
               if (value!.isEmpty) {
                 return "Please enter your password";
@@ -212,18 +222,143 @@ class _CreateAccountState extends State<CreateAccount> {
   ElevatedButton buildCreateNewAccount() {
     return ElevatedButton(
       style: Myconstant().myButtonStyle(),
-      onPressed: () {
-        if (formkey.currentState!.validate()) {
-          String name = nameController.text;
-          String email = emailController.text;
-          String phone = phoneController.text;
-          String password = passwordController.text;
-          print(
-              '## name = $name,email = $email, phone = $phone, password = $password');
-        } else {
-          MyDialog()
-              .normalDialog(context, 'User False ?', 'Please Change User');
-        }
+      onPressed: () async{
+        var u = await User.checkLogin(name, email, phone,password);
+        if (name == "") {
+                        print("ERROR");
+                        await showDialog(
+                            context: context,
+                            builder: (BuildContext context) => AlertDialog(
+                                  title: Text(''),
+                                  backgroundColor: Colors.pink[50],
+                                  content: Text(
+                                    '  ERROR ',
+                                    style: TextStyle(
+                                        color: Colors.black, fontSize: 20),
+                                  ),
+                                  actions: <Widget>[
+                                    TextButton(
+                                        child: Text('Close'),
+                                        style: TextButton.styleFrom(
+                                          primary: Colors.white,
+                                          backgroundColor: Colors.blue,
+                                        ),
+                                        onPressed: () {
+                                          Navigator.pop(context);
+                                        }),
+                                  ],
+                                ));
+                      } else if (email == "") {
+                        print("ERROR");
+                        await showDialog(
+                            context: context,
+                            builder: (BuildContext context) => AlertDialog(
+                                  title: Text(''),
+                                  backgroundColor: Colors.pink[50],
+                                  content: Text(
+                                    '  ERROR ',
+                                    style: TextStyle(
+                                        color: Colors.black, fontSize: 20),
+                                  ),
+                                  actions: <Widget>[
+                                    TextButton(
+                                        child: Text('Close'),
+                                        style: TextButton.styleFrom(
+                                          primary: Colors.white,
+                                          backgroundColor: Colors.blue,
+                                        ),
+                                        onPressed: () {
+                                          Navigator.pop(context);
+                                        }),
+                                  ],
+                                ));
+                      } else if (phone == "") {
+                        print("ERROR");
+                        await showDialog(
+                            context: context,
+                            builder: (BuildContext context) => AlertDialog(
+                                  title: Text(''),
+                                  backgroundColor: Colors.pink[50],
+                                  content: Text(
+                                    '  ERROR ',
+                                    style: TextStyle(
+                                        color: Colors.black, fontSize: 20),
+                                  ),
+                                  actions: <Widget>[
+                                    TextButton(
+                                        child: Text('Close'),
+                                        style: TextButton.styleFrom(
+                                          primary: Colors.white,
+                                          backgroundColor: Colors.blue,
+                                        ),
+                                        onPressed: () {
+                                          Navigator.pop(context);
+                                        }),
+                                  ],
+                                ));
+                      }else if(password == "") {
+                        print("ERROR");
+                        await showDialog(
+                            context: context,
+                            builder: (BuildContext context) => AlertDialog(
+                                  title: Text(''),
+                                  backgroundColor: Colors.pink[50],
+                                  content: Text(
+                                    '  ERROR ',
+                                    style: TextStyle(
+                                        color: Colors.black, fontSize: 20),
+                                  ),
+                                  actions: <Widget>[
+                                    TextButton(
+                                        child: Text('Close'),
+                                        style: TextButton.styleFrom(
+                                          primary: Colors.white,
+                                          backgroundColor: Colors.blue,
+                                        ),
+                                        onPressed: () {
+                                          Navigator.pop(context);
+                                        }),
+                                  ],
+                                ));
+
+                      }
+
+                                
+                      else {
+                        print("เพิ่มเเล้ว");
+                        await showDialog(
+                            context: context,
+                            builder: (BuildContext context) => AlertDialog(
+                                  title: Text(''),
+                                  backgroundColor: Colors.pink[50],
+                                  content: Text(
+                                    '  เพิ่มเเล้วเด้อ ',
+                                    style: TextStyle(
+                                        color: Colors.black, fontSize: 20),
+                                  ),
+                                  actions: <Widget>[
+                                    TextButton(
+                                        child: Text('Close'),
+                                        style: TextButton.styleFrom(
+                                          primary: Colors.white,
+                                          backgroundColor: Colors.blue,
+                                        ),
+                                        onPressed: () {
+                                          Navigator.pop(context);
+                                          if (true) {
+                                            Navigator.push(
+                                                context,
+                                                MaterialPageRoute(
+                                                    builder: (context) =>
+                                                        Login()));
+                                          }
+                                          ;
+                                        }),
+                                  ],
+                                ));
+                      }
+          
+        
       },
       child: const Text('Create Account'),
     );
