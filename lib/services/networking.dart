@@ -3,7 +3,8 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 
 class NetworkHelper {
-  final String server = "192.168.1.105";
+  final String server = "192.168.43.173";
+  String apiPath = "/restarant_system/api/";
   final String url;
   final Map<String, dynamic> params;
   NetworkHelper(this.url, this.params);
@@ -11,7 +12,7 @@ class NetworkHelper {
   Future getData() async {
     try {
       http.Response response = await http
-          .get(Uri.http(server, url, params))
+          .get(Uri.http(server, apiPath + url, params))
           .timeout(const Duration(seconds: 60));
       if (response.statusCode == 200) {
         String data = response.body;
@@ -31,7 +32,7 @@ class NetworkHelper {
     try {
       http.Response response = await http
           .post(
-            Uri.http(server, url, params),
+            Uri.http(server, apiPath + url, params),
             headers: {"Content-Type": "application/json"},
             body: jsonData,
           )

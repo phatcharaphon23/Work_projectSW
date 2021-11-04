@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:packing/TabBar/bottom_nav_bar.dart';
+import 'package:packing/models/historys.dart';
 import 'package:packing/states/history_screen.dart';
 import 'package:packing/states/information_screen.dart';
 import 'package:packing/states/packaging_screengg.dart';
@@ -97,11 +98,15 @@ class HomeScreen extends StatelessWidget {
                           ),
                         ),
                         TextButton(
-                          onPressed: () {
+                          onPressed: () async{
+
+                            List<History>? historys =  await History.getHistory();
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => const HistoryScreen(),
+                                builder: (context) => HistoryScreen(
+                                  historys: historys,
+                                ),
                               ),
                             );
                           },

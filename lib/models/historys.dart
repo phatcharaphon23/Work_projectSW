@@ -5,38 +5,30 @@ import 'package:packing/services/networking.dart';
 
 class History {
   final int? id;
-  final String? history_no;
+  final String? formulaID;
+  final String? productName;
   
   History(
-      {this.history_no,this.id});
+      {this.formulaID,this.id, this.productName});
 
-  // static Future<List<History>?> getHistory(String username, String startDate, String endDate) async {
-  //   NetworkHelper networkHelper = NetworkHelper('merge_packs', {
-  //     'username': username,
-  //   });
+  static Future<List<History>?> getHistory() async {
+    NetworkHelper networkHelper = NetworkHelper('historys', {
+    });
 
-  //   print(username);
-  //   List<History> Historys = [];
-  //   print(Historys);
-  //   var json = await networkHelper.getData();
-  //   if (json != null && json['error'] == false) {
-  //     for (Map t in json['merge_packs']) {
-  //       History History = History(
-  //           id: int.parse(t['id']),
-  //           mergeNo: t['merge_no'],
-  //           productCode: t['part_code'],
-  //           mergestatus: t['merge_status'],
-  //           labelNO: t['label_no'],
-  //           productID: int.parse(t["product_id"]),
-  //           productName: t['part_name'],
-  //           mergeDate: t['merge_date'],
-  //           isVisible: true,);  
-  //       Historys.add(History);
-  //     }
-  //     return Historys;
-  //   }
-  //   return null;
-  // }
+    List<History> historys = [];
+    var json = await networkHelper.getData();
+    if (json != null && json['error'] == false) {
+      for (Map t in json['historys']) {
+        History history = History(
+            id: int.parse(t['id']),
+            productName: t['product_name'],
+        );
+        historys.add(history);
+      }
+      return historys;
+    }
+    return null;
+  }
 
   // static Future<List<History>?> getHistoryID(String username) async {
   //   NetworkHelper networkHelper =
@@ -182,25 +174,25 @@ class History {
   //   }
   // }
 
-   static Future<List<History>?> getHistorysID() async {
-    NetworkHelper networkHelper =
-        NetworkHelper('historys', {});
+  //  static Future<List<History>?> getHistorysID() async {
+  //   NetworkHelper networkHelper =
+  //       NetworkHelper('historys', {});
 
-    List<History> historys = [];
-    print(historys);
-    var json = await networkHelper.getData();
-    if (json != null && json['error'] == false) {
-      for (Map t in json['historys']) {
-        History history = History(
-          id: int.parse(t['id']) ,
-          history_no: t['history_no'],
-        );
-        historys.add(history);
-      }
-      return historys;
-    }
-    return null;
-  }
+  //   List<History> historys = [];
+  //   print(historys);
+  //   var json = await networkHelper.getData();
+  //   if (json != null && json['error'] == false) {
+  //     for (Map t in json['historys']) {
+  //       History history = History(
+  //         id: int.parse(t['id']) ,
+  //         history_no: t['history_no'],
+  //       );
+  //       historys.add(history);
+  //     }
+  //     return historys;
+  //   }
+  //   return null;
+  // }
 
   static Future<History?> addHistory(String formulaCode) async {
     NetworkHelper networkHelper = NetworkHelper('add_history', {});
@@ -208,12 +200,14 @@ class History {
       'formular_code': formulaCode.toString(),
     }));
     if (json != null) {
-      Map u = json;
-      History history = History(
-        id: int.parse(u['id']) ,
+      for (Map u in json['historys']) {
+         History history = History(
+        id: int.parse(u['id']),
           // history_no: u['history_no'],
       );
       return history;
+      } 
+     
     }
     return null;
   }

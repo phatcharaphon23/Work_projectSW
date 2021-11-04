@@ -16,7 +16,7 @@ final Map<String, WidgetBuilder> map = {
   '/my_login': (BuildContext context) => const Login(),
   '/create_account': (BuildContext context) => const CreateAccount(),
   '/packaging_screen': (BuildContext context) => const PackagingScreen(),
-  '/history_screen': (BuildContext context) => const HistoryScreen(),
+  '/history_screen': (BuildContext context) => HistoryScreen(),
   '/histor/information_screen': (BuildContext context) =>
       const InformationScreen(),
   '/profile': (BuildContext context) => const ProfileScreen(),

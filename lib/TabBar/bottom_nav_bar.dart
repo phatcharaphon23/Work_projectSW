@@ -37,15 +37,8 @@ class BottomNavBar extends StatelessWidget {
             onpress: () async{
               
               var result = await BarcodeScanner.scan();
-              // String gg =result.rawContent;
-              // print(result.rawContent);
               await History.addHistory(result.rawContent);
-              // Navigator.push(
-              //   context,
-              //   MaterialPageRoute(
-              //     builder: (context) => const ScannerScreen(),
-              //   ),
-              // );
+           
             },
             isActive: true,
           ),
