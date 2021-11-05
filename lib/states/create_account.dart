@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:packing/api/singup.dart';
 import 'package:packing/states/login.dart';
 import 'package:packing/utility/my_constant.dart';
-import 'package:packing/utility/my_dialog.dart';
 import 'package:packing/widgets/show_title.dart';
 
 class CreateAccount extends StatefulWidget {
@@ -332,7 +331,7 @@ class _CreateAccountState extends State<CreateAccount> {
                                   title: Text(''),
                                   backgroundColor: Colors.pink[50],
                                   content: Text(
-                                    '  เพิ่มเเล้วเด้อ ',
+                                    '  สมัครเรียบร้อย ',
                                     style: TextStyle(
                                         color: Colors.black, fontSize: 20),
                                   ),

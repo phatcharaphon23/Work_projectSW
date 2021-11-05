@@ -17,15 +17,22 @@ class User {
   });
 
   static Future<User?> checkLogin(
-      String name, String email, String phone,String password) async {
-    NetworkHelper networkHelper = NetworkHelper('test/singup.php', {});
+      String name, String password) async {
+    NetworkHelper networkHelper = NetworkHelper('test/login.php', {});
     var json = await networkHelper.postData(jsonEncode(<String, String>{
       'name': name,
-      'email': email,
-      'phone': phone,
+     
       'password': password,
     }));
-    
+     if (json != null && json['error'] == false) {
+      Map<String, dynamic> u = json['user'];
+      User user = User(
+        userID: int.parse(u["id"]),
+        username: u["name"],
+      );
+      return user;
+    }
+    return null;
    
   }
 }
