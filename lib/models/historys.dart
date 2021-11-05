@@ -7,13 +7,18 @@ class History {
   final int? id;
   final String? formulaID;
   final String? productName;
-  
+  final String? productModel;
+  final String? formulaCode;
+
   History(
-      {this.formulaID,this.id, this.productName});
+      {this.formulaID,
+      this.id,
+      this.productName,
+      this.productModel,
+      this.formulaCode});
 
   static Future<List<History>?> getHistory() async {
-    NetworkHelper networkHelper = NetworkHelper('historys', {
-    });
+    NetworkHelper networkHelper = NetworkHelper('historys', {});
 
     List<History> historys = [];
     var json = await networkHelper.getData();
@@ -22,7 +27,9 @@ class History {
         History history = History(
             id: int.parse(t['id']),
             productName: t['product_name'],
-        );
+            productModel: t['product_model'],
+            formulaCode: t['formulas_code']);
+
         historys.add(history);
       }
       return historys;
@@ -201,13 +208,12 @@ class History {
     }));
     if (json != null) {
       for (Map u in json['historys']) {
-         History history = History(
-        id: int.parse(u['id']),
+        History history = History(
+          id: int.parse(u['id']),
           // history_no: u['history_no'],
-      );
-      return history;
-      } 
-     
+        );
+        return history;
+      }
     }
     return null;
   }

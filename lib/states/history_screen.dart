@@ -9,8 +9,6 @@ import 'package:packing/utility/my_constant.dart';
 //   });
 //   // const HistoryScreen({Key? key}) : super(key: key);
 
-  
-
 //   @override
 //   _HistoryScreenState createState() => _HistoryScreenState();
 // }
@@ -49,6 +47,7 @@ class _HistoryScreenState extends State<HistoryScreen> {
     for (var history in historys) {
       var l = ListTile(
         title: Text("${history.productName}"),
+        subtitle: Text(history.productModel!),
       );
       list.add(l);
     }
@@ -76,4 +75,3 @@ class _HistoryScreenState extends State<HistoryScreen> {
     );
   }
 }
-

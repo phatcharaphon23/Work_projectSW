@@ -100,7 +100,7 @@ class HomeScreen extends StatelessWidget {
                         ),
                         TextButton(
                           onPressed: () async{
-
+                            //get history
                             List<History>? historys =  await History.getHistory();
                             Navigator.push(
                               context,
