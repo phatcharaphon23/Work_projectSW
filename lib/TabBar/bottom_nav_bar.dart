@@ -1,7 +1,8 @@
+import 'package:barcode_scan2/barcode_scan2.dart';
 import 'package:flutter/material.dart';
 import 'package:ranya/states/home.dart';
 import 'package:ranya/states/Profile/profile.dart';
-import 'package:ranya/states/scanner_screen.dart';
+// import 'package:ranya/states/scanner_screen.dart';
 
 class BottomNavBar extends StatelessWidget {
   BottomNavBar({

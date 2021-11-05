@@ -22,6 +22,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.8.1"
+  barcode_scan2:
+    dependency: "direct main"
+    description:
+      name: barcode_scan2
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "4.1.4"
   boolean_selector:
     dependency: transitive
     description:
@@ -92,6 +99,20 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "4.0.1"
+  dropdown_search:
+    dependency: "direct main"
+    description:
+      name: dropdown_search
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.0.4"
+  dropdownfield:
+    dependency: "direct main"
+    description:
+      name: dropdownfield
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.0.3"
   fake_async:
     dependency: transitive
     description:
@@ -99,6 +120,27 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.2.0"
+  ffi:
+    dependency: transitive
+    description:
+      name: ffi
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.1.2"
+  file:
+    dependency: transitive
+    description:
+      name: file
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "6.1.2"
+  fixnum:
+    dependency: transitive
+    description:
+      name: fixnum
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.0.0"
   flutter:
     dependency: "direct main"
     description: flutter
@@ -111,6 +153,7 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.9.2"
+<<<<<<< HEAD
   flutter_lints:
     dependency: "direct dev"
     description:
@@ -125,6 +168,8 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.0.4"
+=======
+>>>>>>> 719ef10c0150eb499b763608bd1a2a5edca4be52
   flutter_svg:
     dependency: "direct main"
     description:
@@ -137,6 +182,7 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+<<<<<<< HEAD
   flutter_web_plugins:
     dependency: transitive
     description: flutter
@@ -144,6 +190,17 @@ packages:
     version: "0.0.0"
   http:
     dependency: transitive
+=======
+  google_fonts:
+    dependency: "direct main"
+    description:
+      name: google_fonts
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "2.1.0"
+  http:
+    dependency: "direct main"
+>>>>>>> 719ef10c0150eb499b763608bd1a2a5edca4be52
     description:
       name: http
       url: "https://pub.dartlang.org"
@@ -163,6 +220,7 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "3.0.8"
+<<<<<<< HEAD
   image_picker:
     dependency: transitive
     description:
@@ -193,11 +251,15 @@ packages:
     version: "0.6.3"
   lints:
     dependency: transitive
+=======
+  intl:
+    dependency: "direct main"
+>>>>>>> 719ef10c0150eb499b763608bd1a2a5edca4be52
     description:
-      name: lints
+      name: intl
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.0.1"
+    version: "0.17.0"
   matcher:
     dependency: transitive
     description:
@@ -233,6 +295,41 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.2.1"
+  path_provider:
+    dependency: "direct main"
+    description:
+      name: path_provider
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "2.0.6"
+  path_provider_linux:
+    dependency: transitive
+    description:
+      name: path_provider_linux
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "2.1.0"
+  path_provider_macos:
+    dependency: transitive
+    description:
+      name: path_provider_macos
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "2.0.2"
+  path_provider_platform_interface:
+    dependency: transitive
+    description:
+      name: path_provider_platform_interface
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "2.0.1"
+  path_provider_windows:
+    dependency: transitive
+    description:
+      name: path_provider_windows
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "2.0.3"
   petitparser:
     dependency: transitive
     description:
@@ -240,6 +337,16 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "4.4.0"
+<<<<<<< HEAD
+=======
+  platform:
+    dependency: transitive
+    description:
+      name: platform
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "3.0.2"
+>>>>>>> 719ef10c0150eb499b763608bd1a2a5edca4be52
   plugin_platform_interface:
     dependency: transitive
     description:
@@ -247,6 +354,30 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.0.2"
+<<<<<<< HEAD
+=======
+  process:
+    dependency: transitive
+    description:
+      name: process
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "4.2.4"
+  protobuf:
+    dependency: transitive
+    description:
+      name: protobuf
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "2.0.0"
+  search_choices:
+    dependency: "direct main"
+    description:
+      name: search_choices
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "2.0.14"
+>>>>>>> 719ef10c0150eb499b763608bd1a2a5edca4be52
   sky_engine:
     dependency: transitive
     description: flutter
@@ -308,6 +439,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.3.0"
+  uuid:
+    dependency: "direct main"
+    description:
+      name: uuid
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "3.0.5"
   vector_math:
     dependency: transitive
     description:
@@ -315,6 +453,20 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.1.0"
+  win32:
+    dependency: transitive
+    description:
+      name: win32
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "2.2.10"
+  xdg_directories:
+    dependency: transitive
+    description:
+      name: xdg_directories
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.2.0"
   xml:
     dependency: transitive
     description:
