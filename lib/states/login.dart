@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:ranya/utility/my_constant.dart';
-import 'package:ranya/widgets/show_image.dart';
-import 'package:ranya/widgets/show_title.dart';
+import 'package:packing/api/login.dart';
+import 'package:packing/states/home.dart';
+import 'package:packing/utility/my_constant.dart';
+import 'package:packing/widgets/show_image.dart';
+import 'package:packing/widgets/show_title.dart';
 
 class Login extends StatefulWidget {
   const Login({Key? key}) : super(key: key);
@@ -12,6 +14,8 @@ class Login extends StatefulWidget {
 
 class _AuthenState extends State<Login> {
   bool statusRedEye = true;
+  String username = "";
+  String password = "";
   @override
   Widget build(BuildContext context) {
     double size = MediaQuery.of(context).size.width;
@@ -84,11 +88,9 @@ class _AuthenState extends State<Login> {
           margin: const EdgeInsets.only(top: 20),
           width: size * 0.65,
           child: TextFormField(
-            validator: (value) {
-              if (value!.isEmpty) {
-                return "Please enter your user";
-              } else {}
-            },
+            onChanged: (value) {
+                    username = value;
+                  },
             decoration: InputDecoration(
               labelStyle: Myconstant().h3Style(),
               labelText: 'user :',
@@ -119,11 +121,9 @@ class _AuthenState extends State<Login> {
           margin: const EdgeInsets.only(top: 20),
           width: size * 0.65,
           child: TextFormField(
-            validator: (value) {
-              if (value!.isEmpty) {
-                return "Please enter your password";
-              } else {}
-            },
+            onChanged: (value) {
+                    password = value;
+                  },
             obscureText: statusRedEye,
             decoration: InputDecoration(
               suffixIcon: IconButton(
