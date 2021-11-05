@@ -1,6 +1,5 @@
 // ignore: unused_import
 import 'package:flutter/material.dart';
-import 'package:ranya/api/singup.dart';
 
 import 'package:ranya/utility/my_constant.dart';
 import 'package:ranya/widgets/show_title.dart';
@@ -224,7 +223,7 @@ class _CreateAccountState extends State<CreateAccount> {
     return ElevatedButton(
       style: Myconstant().myButtonStyle(),
       onPressed: () async {
-        var u = await User.checkLogin(name, email, phone, password);
+        // var u = await User.checkLogin(name, email, phone, password);
         if (name == "") {
           print("ERROR");
           await showDialog(

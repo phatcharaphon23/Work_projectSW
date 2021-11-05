@@ -22,7 +22,7 @@ final Map<String, WidgetBuilder> map = {
   '/profile': (BuildContext context) => ProfileScreen(),
   '/check_status_screen': (BuildContext context) => CheckStatusScreen(),
   '/scanner_screen': (BuildContext context) => ScannerScreen(),
-  '/packaging01': (BuildContext context) => PackagingHome(),
+  '/home_packaging': (BuildContext context) => PackagingHome(),
 };
 
 String? initlalRoute;

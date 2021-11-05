@@ -14,7 +14,7 @@ class Myconstant {
   static String routeProfileScreen = '/profile_screen';
   static String routeCheckStatusScreen = '/check_status_screen';
   static String routeScannerScreen = '/scanner_screen';
-  static String routePackagingHome = '/packaging01';
+  static String routePackagingHome = '/home_packaging';
 
   // Image
   static String images1 = 'assets/images1.png';
@@ -29,7 +29,6 @@ class Myconstant {
   static Color primary = const Color(0xff9575cd);
   static Color dark = const Color(0xff65499c);
   static Color light = const Color(0xffc7a4ff);
-  
 
   //Style
   TextStyle h1Style() => TextStyle(
@@ -56,6 +55,11 @@ class Myconstant {
   TextStyle h3WhiteStyle() => TextStyle(
         fontSize: 14,
         color: Colors.white,
+        fontWeight: FontWeight.normal,
+      );
+  TextStyle h3BlackStyle() => TextStyle(
+        fontSize: 14,
+        color: Colors.black,
         fontWeight: FontWeight.normal,
       );
   ButtonStyle myButtonStyle() => ElevatedButton.styleFrom(

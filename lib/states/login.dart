@@ -64,12 +64,12 @@ class _AuthenState extends State<Login> {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Container(
-          margin: const EdgeInsets.symmetric(vertical: 20),
+          margin:EdgeInsets.symmetric(vertical: 20),
           width: size * 0.65,
           child: ElevatedButton(
             style: Myconstant().myButtonStyle(),
             onPressed: () {},
-            child: const Text('Login'),
+            child:Text('Login'),
           ),
         ),
       ],
