@@ -105,7 +105,9 @@ class HomeScreen extends StatelessWidget {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => HistoryScreen(),
+                                builder: (context) => HistoryScreen(
+                                  historys: historys,
+                                ),
                               ),
                             );
                           },
