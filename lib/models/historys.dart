@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:ffi';
 
 // import 'package:packing/models/user.dart';
 import 'package:packing/services/networking.dart';
@@ -9,13 +10,16 @@ class History {
   final String? productName;
   final String? productModel;
   final String? formulaCode;
+  final double? quantity;
 
-  History(
-      {this.formulaID,
-      this.id,
-      this.productName,
-      this.productModel,
-      this.formulaCode});
+  History({
+    this.formulaID,
+    this.id,
+    this.productName,
+    this.productModel,
+    this.formulaCode,
+    this.quantity,
+  });
 
   static Future<List<History>?> getHistory() async {
     NetworkHelper networkHelper = NetworkHelper('historys', {});
@@ -28,7 +32,10 @@ class History {
             id: int.parse(t['id']),
             productName: t['product_name'],
             productModel: t['product_model'],
-            formulaCode: t['formulas_code']);
+            formulaCode: t['formulas_code'],
+            quantity: double.parse(
+              t['quantity'].toString(),
+            ));
 
         historys.add(history);
       }

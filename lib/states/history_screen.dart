@@ -48,6 +48,7 @@ class _HistoryScreenState extends State<HistoryScreen> {
       var l = ListTile(
         title: Text("${history.productName}"),
         subtitle: Text(history.productModel!),
+        trailing: Text(history.quantity!.toString()),
       );
       list.add(l);
     }
