@@ -1,7 +1,4 @@
 import 'dart:convert';
-import 'dart:ffi';
-
-// import 'package:packing/models/user.dart';
 import 'package:packing/services/networking.dart';
 
 class History {
@@ -11,6 +8,8 @@ class History {
   final String? productModel;
   final String? formulaCode;
   final double? quantity;
+  final String? productLot;
+  final String? status;
 
   History({
     this.formulaID,
@@ -19,6 +18,8 @@ class History {
     this.productModel,
     this.formulaCode,
     this.quantity,
+    this.productLot,
+    this.status,
   });
 
   static Future<List<History>?> getHistory() async {
@@ -36,6 +37,26 @@ class History {
             quantity: double.parse(
               t['quantity'].toString(),
             ));
+
+        historys.add(history);
+      }
+      return historys;
+    }
+    return null;
+  }
+
+  static Future<List<History>?> getLot() async {
+    NetworkHelper networkHelper = NetworkHelper('lots', {});
+
+    List<History> historys = [];
+    var json = await networkHelper.getData();
+    if (json != null && json['error'] == false) {
+      for (Map t in json['lots']) {
+        History history = History(
+          id: int.parse(t['id']),
+          productLot: t['lot_no'],
+          status: t['status'],
+        );
 
         historys.add(history);
       }
@@ -220,6 +241,21 @@ class History {
           // history_no: u['history_no'],
         );
         return history;
+      }
+    }
+    return null;
+  }
+
+  static Future<History?> addLot() async {
+    NetworkHelper networkHelper = NetworkHelper('add_lot', {});
+    var json = await networkHelper.postData(jsonEncode(<String, String>{}));
+    if (json != null) {
+      for (Map u in json['lots']) {
+        History lot = History(
+          id: int.parse(u['id']),
+          // history_no: u['history_no'],
+        );
+        return lot;
       }
     }
     return null;

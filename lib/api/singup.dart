@@ -2,11 +2,6 @@ import 'dart:convert';
 
 import 'package:packing/api/networtking2.dart';
 
-
-
-
-
-
 class User {
   final int? userID;
   final String? username;
@@ -17,7 +12,7 @@ class User {
   });
 
   static Future<User?> checkLogin(
-      String name, String email, String phone,String password) async {
+      String name, String email, String phone, String password) async {
     NetworkHelper networkHelper = NetworkHelper('test/singup.php', {});
     var json = await networkHelper.postData(jsonEncode(<String, String>{
       'name': name,
@@ -25,7 +20,5 @@ class User {
       'phone': phone,
       'password': password,
     }));
-    
-   
   }
 }

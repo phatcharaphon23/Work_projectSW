@@ -13,7 +13,7 @@ class BottomNavBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 30, vertical: 8),
-      height: 60,
+      height: 70,
       color: Colors.white,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -33,11 +33,9 @@ class BottomNavBar extends StatelessWidget {
           BottomNaItem(
             svgScr: "assets/icons/scan.png",
             title: "Scan",
-            onpress: () async{
-              
+            onpress: () async {
               var result = await BarcodeScanner.scan();
               await History.addHistory(result.rawContent);
-           
             },
             isActive: true,
           ),

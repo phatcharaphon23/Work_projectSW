@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:packing/models/historys.dart';
 import 'package:packing/states/PackagingScreen/packaging_screen.dart';
 import 'package:packing/states/PackagingScreen/data.dart';
+import 'package:packing/states/scanner_screen.dart';
 import 'package:packing/utility/my_constant.dart';
 import 'package:packing/widgets/show_image.dart';
 import 'package:packing/widgets/show_title.dart';
@@ -57,13 +59,17 @@ class _PackagingHomeState extends State<PackagingHome> {
                             Container(
                               margin: EdgeInsets.only(top: 20),
                               child: TextButton.icon(
-                                onPressed: () => {
+                                onPressed: () async {
+                                  List<History>? historys =
+                                      await History.getHistory();
                                   Navigator.push(
                                     context,
                                     MaterialPageRoute(
-                                      builder: (context) => PackgingScreen(),
+                                      builder: (context) => HistoryScreen(
+                                        historys: historys,
+                                      ),
                                     ),
-                                  )
+                                  );
                                 },
                                 icon: Icon(
                                   Icons.add_business_sharp,
@@ -87,13 +93,14 @@ class _PackagingHomeState extends State<PackagingHome> {
                       Container(
                         margin: const EdgeInsets.only(top: 20),
                         child: TextButton.icon(
-                          onPressed: () => {
+                          onPressed: () async {
+                            List<History>? lot = await History.getLot();
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => DataPage(),
+                                builder: (context) => DataPage(lot:lot),
                               ),
-                            )
+                            );
                           },
                           style: ButtonStyle(
                               side: MaterialStateProperty.all(BorderSide(

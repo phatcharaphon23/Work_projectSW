@@ -108,8 +108,8 @@ class _HistoryScreenState extends State<HistoryScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("History"),
-        backgroundColor: Colors.lightBlue[900],
+        title: Text("ข้อมูลในกล่องยาที่เราเพิ่ม"),
+        backgroundColor: Myconstant.dark,
       ),
       body: Container(
         child: ListView(

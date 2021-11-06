@@ -3,7 +3,7 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 
 class NetworkHelper {
-  final String server = "192.168.1.104";
+  final String server = "192.168.135.173";
   String apiPath = "/restarant_system/api/";
   final String url;
   final Map<String, dynamic> params;
@@ -20,7 +20,6 @@ class NetworkHelper {
         return jsonDecode(data);
       } else {
         String data = response.body;
-
         return jsonDecode(data);
       }
     } catch (e) {
