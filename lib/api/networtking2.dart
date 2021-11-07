@@ -3,7 +3,7 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 
 class NetworkHelper {
-  final String server = "192.168.135.173";
+  final String server = "192.168.43.52";
   final String url;
   final Map<String, dynamic> params;
   NetworkHelper(this.url, this.params);
