@@ -24,6 +24,7 @@ class Myconstant {
   static String images5 = 'assets/images5.png';
   static String images6 = 'assets/images6.png';
   static String images7 = 'assets/images7.png';
+  static String images8 = 'assets/images8.png';
 
   // Color
   static Color primary = const Color(0xff9575cd);
