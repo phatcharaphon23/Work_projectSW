@@ -17,7 +17,7 @@ class CreateAccount extends StatefulWidget {
 
 class _CreateAccountState extends State<CreateAccount> {
   final formkey = GlobalKey<FormState>();
-  String name = "";
+  String username = "";
   String email = "";
   String phone = "";
   String password = "";
@@ -63,7 +63,7 @@ class _CreateAccountState extends State<CreateAccount> {
           width: size * 0.8,
           child: TextFormField(
             onChanged: (value) {
-              name = value;
+              username = value;
             },
             validator: (value) {
               if (value!.isEmpty) {
@@ -224,8 +224,8 @@ class _CreateAccountState extends State<CreateAccount> {
     return ElevatedButton(
       style: Myconstant().myButtonStyle(),
       onPressed: () async {
-         var u = await User.checkLogin(name, email, phone, password);
-        if (name == "") {
+         var u = await User.checkLogin(username, email, phone, password);
+        if (username == "") {
           print("ERROR");
           await showDialog(
               context: context,

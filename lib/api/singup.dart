@@ -12,10 +12,10 @@ class User {
   });
 
   static Future<User?> checkLogin(
-      String name, String email, String phone, String password) async {
+      String username, String email, String phone, String password) async {
     NetworkHelper networkHelper = NetworkHelper('test/singup.php', {});
     var json = await networkHelper.postData(jsonEncode(<String, String>{
-      'name': name,
+      'username': username,
       'email': email,
       'phone': phone,
       'password': password,
