@@ -1,104 +1,107 @@
 import 'dart:convert';
 import 'package:packing/services/networking.dart';
 
-class History {
+class BoxDetail {
   final int? id;
+  final String? formulaID;
   final String? productName;
   final String? productModel;
   final String? formulaCode;
-  final double? quantity;
-  final String? productLot;
+  final int? quantity;
+  final String? boxNo;
   final String? status;
-  final int? formulaID;
+  final String? dateExt;
 
-  History({
+  BoxDetail({
+    this.formulaID,
     this.id,
     this.productName,
     this.productModel,
     this.formulaCode,
     this.quantity,
-    this.productLot,
+    this.boxNo,
     this.status,
-    this.formulaID,
+    this.dateExt,
   });
 
-  static Future<List<History>?> getHistory() async {
-    NetworkHelper networkHelper = NetworkHelper('historys', {});
+  static Future<List<BoxDetail>?> getBoxDetail(int boxID) async {
+    NetworkHelper networkHelper = NetworkHelper('box_details', {
+      'box_id': boxID.toString(),
+    });
 
-    List<History> historys = [];
+    List<BoxDetail> historys = [];
     var json = await networkHelper.getData();
     if (json != null && json['error'] == false) {
-      for (Map t in json['historys']) {
-        History history = History(
-            id: int.parse(t['id']),
-            productName: t['product_name'],
-            productModel: t['product_model'],
-            formulaCode: t['formulas_code'],
-            quantity: double.parse(
-              t['quantity'].toString(),
-            ),
-            formulaID: int.parse(t['formula_id']),
-            status: t['status']);
-
+      for (Map t in json['box_details']) {
+        BoxDetail history = BoxDetail(
+          id: int.parse(t['id']),
+          boxNo: t['box_detail_no'],
+          status: t['status'],
+          quantity: int.parse(t['quantity'].toString()),
+          productName: t['product_name'],
+          productModel: t['product_model'],
+          dateExt: t['date_ext'],
+        );
         historys.add(history);
       }
       return historys;
     }
     return null;
   }
-  // static Future<List<History>?> getHistoryID(String username) async {
+
+  // static Future<List<BoxDetail>?> getBoxDetailID(String username) async {
   //   NetworkHelper networkHelper =
   //       NetworkHelper('merge_packs', {'username': username});
 
-  //   List<History> Historys = [];
-  //   print(Historys);
+  //   List<BoxDetail> BoxDetails = [];
+  //   print(BoxDetails);
   //   var json = await networkHelper.getData();
   //   if (json != null && json['error'] == false) {
   //     for (Map t in json['merge_packs']) {
-  //       History History = History(
+  //       BoxDetail BoxDetail = BoxDetail(
   //         id: 1,
   //         mergeNo: t['merge_no'],
   //         productCode: t['part_code'],
   //         mergestatus: t['merge_status'],
   //         labelNO: t['label_no'],
   //       );
-  //       Historys.add(History);
+  //       BoxDetails.add(BoxDetail);
   //     }
-  //     return Historys;
+  //     return BoxDetails;
   //   }
   //   return null;
   // }
 
-  // static Future<List<History>?> upStatusHistory(
-  //     User user, int HistoryID, String mergestatus) async {
+  // static Future<List<BoxDetail>?> upStatusBoxDetail(
+  //     User user, int BoxDetailID, String mergestatus) async {
   //   NetworkHelper networkHelper = NetworkHelper('up_status_merge_packs', {});
 
-  //   List<History> Historys = [];
+  //   List<BoxDetail> BoxDetails = [];
   //   var json = await networkHelper.postData(jsonEncode(<String, String>{
   //     'user_id': user.userID.toString(),
-  //     'id': HistoryID.toString(),
+  //     'id': BoxDetailID.toString(),
   //     'merge_status': mergestatus,
   //   }));
 
   //   if (json != null && json['error'] == false) {
   //     for (Map t in json['merge_packs']) {
-  //       History History = History(
+  //       BoxDetail BoxDetail = BoxDetail(
   //         id: int.parse(t['id']),
   //         mergeNo: t['merge_no'],
   //         mergestatus: t['merge_status'],
   //         productID: int.parse(t['product_id']),
   //       );
-  //       Historys.add(History);
+  //       BoxDetails.add(BoxDetail);
   //     }
-  //     return Historys;
+  //     return BoxDetails;
   //   }
   // }
 
-  // static Future<List<History>?> upStatusMerging(
+  // static Future<List<BoxDetail>?> upStatusMerging(
   //     User user, String mergeNo, String mergestatus) async {
   //   NetworkHelper networkHelper = NetworkHelper('up_status_mergings', {});
 
-  //   List<History> Historys = [];
+  //   List<BoxDetail> BoxDetails = [];
   //   var json = await networkHelper.postData(jsonEncode(<String, String>{
   //     'user_id': user.userID.toString(),
   //     'merge_no': mergeNo,
@@ -107,41 +110,41 @@ class History {
 
   //   if (json != null && json['error'] == false) {
   //     for (Map t in json['merge_packs']) {
-  //       History History = History(
+  //       BoxDetail BoxDetail = BoxDetail(
   //         id: int.parse(t['id']),
   //         mergeNo: t['merge_no'],
   //         mergestatus: t['merge_status'],
   //         productID: int.parse(t['product_id']),
   //       );
-  //       Historys.add(History);
+  //       BoxDetails.add(BoxDetail);
   //     }
-  //     return Historys;
+  //     return BoxDetails;
   //   }
   // }
 
-  // static Future<History?> checkHistoryID(
-  //     User user, int productID, int HistoryID) async {
+  // static Future<BoxDetail?> checkBoxDetailID(
+  //     User user, int productID, int BoxDetailID) async {
   //   NetworkHelper networkHelper = NetworkHelper('check_merge_pack_id', {});
   //   var json = await networkHelper.postData(jsonEncode(<String, String>{
   //     'user_id': user.userID.toString(),
   //     'product_id': productID.toString(),
-  //     'id': HistoryID.toString(),
+  //     'id': BoxDetailID.toString(),
   //   }));
   //   print("loginuser");
   //   if (json != null && json['error'] == false) {
   //     Map u = json['merge_packs'];
-  //     History History = History(
+  //     BoxDetail BoxDetail = BoxDetail(
   //       id: int.parse(u["id"]),
   //       mergeNo: u['merge_no'],
   //       productID: int.parse(u["product_id"]),
   //       mergestatus: u["merge_status"],
   //     );
-  //     return History;
+  //     return BoxDetail;
   //   }
   //   return null;
   // }
 
-  // static Future<History?> addHistory(User user, int productID) async {
+  // static Future<BoxDetail?> addBoxDetail(User user, int productID) async {
   //   NetworkHelper networkHelper = NetworkHelper('add_merge_pack', {});
   //   var json = await networkHelper.postData(jsonEncode(<String, String>{
   //     'user_id': user.userID.toString(),
@@ -149,57 +152,57 @@ class History {
   //   }));
   //   if (json != null) {
   //     Map u = json;
-  //     History History = History(
+  //     BoxDetail BoxDetail = BoxDetail(
   //       id: int.parse(u["id"]),
   //       mergeNo: u['merge_no'],
   //       productID: int.parse(u["product_id"]),
   //       mergestatus: u["merge_status"],
   //     );
-  //     return History;
+  //     return BoxDetail;
   //   }
   //   return null;
   // }
 
-  // static Future<List<History>?> completeHistory(
-  //     User user, List labels, int HistoryID) async {
+  // static Future<List<BoxDetail>?> completeBoxDetail(
+  //     User user, List labels, int BoxDetailID) async {
   //   NetworkHelper networkHelper = NetworkHelper('complete_merge_pack', {});
   //   String data = "";
   //   for (String i in labels) {
   //     data += "#" + i;
   //   }
 
-  //   List<History> Historys = [];
+  //   List<BoxDetail> BoxDetails = [];
   //   var json = await networkHelper.postData(jsonEncode(<String, String>{
   //     'user_id': user.userID.toString(),
   //     'labels': data,
-  //     'merge_pack_id': HistoryID.toString()
+  //     'merge_pack_id': BoxDetailID.toString()
   //   }));
 
   //   if (json != null && json['error'] == false) {
   //     for (Map t in json['merge_packs']) {
-  //       History History = History(
+  //       BoxDetail BoxDetail = BoxDetail(
   //         id: int.parse(t['id']),
   //         mergeNo: t['merge_no'],
   //         mergestatus: t['merge_status'],
   //         productID: int.parse(t['product_id']),
   //         productCode: t['part_code'],
   //       );
-  //       Historys.add(History);
+  //       BoxDetails.add(BoxDetail);
   //     }
-  //     return Historys;
+  //     return BoxDetails;
   //   }
   // }
 
-  //  static Future<List<History>?> getHistorysID() async {
+  //  static Future<List<BoxDetail>?> getBoxDetailsID() async {
   //   NetworkHelper networkHelper =
   //       NetworkHelper('historys', {});
 
-  //   List<History> historys = [];
+  //   List<BoxDetail> historys = [];
   //   print(historys);
   //   var json = await networkHelper.getData();
   //   if (json != null && json['error'] == false) {
   //     for (Map t in json['historys']) {
-  //       History history = History(
+  //       BoxDetail history = BoxDetail(
   //         id: int.parse(t['id']) ,
   //         history_no: t['history_no'],
   //       );
@@ -210,20 +213,41 @@ class History {
   //   return null;
   // }
 
-  static Future<History?> addHistory(String formulaCode) async {
-    NetworkHelper networkHelper = NetworkHelper('add_history', {});
+  static Future<BoxDetail?> addBoxDetail(
+      int boxID, int lotID, int formulaID) async {
+    NetworkHelper networkHelper = NetworkHelper('add_formula_in_box', {});
     var json = await networkHelper.postData(jsonEncode(<String, String>{
-      'formular_code': formulaCode.toString(),
+      'box_id': boxID.toString(),
+      'lot_id': lotID.toString(),
+      'formula_id': formulaID.toString(),
     }));
     if (json != null) {
-      for (Map u in json['historys']) {
-        History history = History(
+      for (Map u in json['box_details']) {
+        BoxDetail box_detail = BoxDetail(
           id: int.parse(u['id']),
           // history_no: u['history_no'],
         );
-        return history;
+        return box_detail;
       }
     }
     return null;
   }
+
+  // static Future<BoxDetail?> addFormulaInBoxDetail(int id, int box_detailID, int historyID) async {
+  //   NetworkHelper networkHelper = NetworkHelper('add_formula_in_box_detail', {});
+  //   var json = await networkHelper.postData(jsonEncode(<String, String>{
+  //     'formula_id': id.toString(),
+  //     'box_detail_id': box_detailID.toString(),
+  //     'history_id': historyID.toString(),
+  //   }));
+
+  // }
+
+  // static Future<BoxDetail?> confirmBoxDetail(int box_detailID) async {
+  //   NetworkHelper networkHelper = NetworkHelper('confirm_box_detail', {});
+  //   var json = await networkHelper.postData(jsonEncode(<String, String>{
+  //     'id': box_detailID.toString(),
+  //   }));
+
+  // }
 }

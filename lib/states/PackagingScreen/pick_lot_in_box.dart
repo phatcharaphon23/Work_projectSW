@@ -1,42 +1,49 @@
 import 'package:flutter/material.dart';
-import 'package:packing/models/box_detail.dart';
-import 'package:packing/models/box.dart';
-import 'package:packing/states/PackagingScreen/box_detail_screen.dart';
-import 'package:packing/states/box_detail_screen.dart';
-// import 'package:packing/models/box_detail.dart';
-// import 'package:packing/states/PackagingScreen/formula_in_box.dart';
-// import 'package:packing/states/PackagingScreen/pick_formula_in_box.dart';
+import 'package:packing/models/historys.dart';
+import 'package:packing/models/lot.dart';
+import 'package:packing/models/lot.dart';
+import 'package:packing/models/lot_detail.dart';
+import 'package:packing/states/PackagingScreen/pick_label_in_box.dart';
+// import 'package:packing/models/lot_detail.dart';
+// import 'package:packing/states/PackagingScreen/formula_in_lot.dart';
+// import 'package:packing/states/PackagingScreen/pick_formula_in_lot.dart';
+import 'package:packing/states/packaging_screengg.dart';
 import 'package:packing/utility/my_constant.dart';
 
-class AddBox extends StatefulWidget {
-  final List<Box>? boxs;
-  AddBox({
-    this.boxs,
+class PickLotInBoxScreen extends StatefulWidget {
+  final List<Lot>? lotBoxs;
+  final boxID;
+  PickLotInBoxScreen({
+    this.lotBoxs,
+    this.boxID
   });
 
   @override
   _NewPageState createState() => _NewPageState();
 }
 
-class _NewPageState extends State<AddBox> {
-  List<Box> boxs = [];
+class _NewPageState extends State<PickLotInBoxScreen> {
+  List<Lot> lotBoxs = [];
+  int boxID = 0;
   List<ListTile> getListTile() {
     List<ListTile> list = [];
-    for (var box in boxs) {
-      if (box.status == "PACKED") {
+    for (var lot in lotBoxs) {
+      if (lot.status == "PACKED") {
         var l = ListTile(
-          title: Text(box.boxNo!),
-          subtitle: Text(box.status!),
-          trailing: Text(box.quantity.toString()),
-          onTap: () async {
-            List<BoxDetail>? boxdetails = await BoxDetail.getBoxDetail(box.id!);
+          title: Text(lot.productLot!),
+          subtitle: Text(lot.status!),
+          // trailing: Text(lot.quantity.toString()),
+          onTap: () async{
+            List<LotDetail>? lotDetails = await LotDetail.getLotDetail(lot.id!);
+
             Navigator.push(
                 context,
                 MaterialPageRoute(
-                    builder: (context) => HistoryBoxDetailScreen(
-                          boxdetails: boxdetails,
-                          boxID: box.id,
-                          boxNo: box.boxNo,
+                    builder: (context) => PickLabelInBoxScreen(
+                          lotID: lot.id!,
+                          lotNo: lot.productLot!,
+                          formulas: lotDetails,
+                          boxID: boxID,
                         )));
           },
           // onTap: () {
@@ -45,7 +52,7 @@ class _NewPageState extends State<AddBox> {
           //     builder: (BuildContext context) => AlertDialog(
           //       title: Text('Details'),
           //       backgroundColor: Colors.white,
-          //       content: SizedBox(
+          //       content: SizedLot(
           //         width: 400.0,
           //         height: 100.0,
           //         child: Column(
@@ -91,7 +98,8 @@ class _NewPageState extends State<AddBox> {
   @override
   void initState() {
     super.initState();
-    boxs = (widget.boxs ?? []).toList();
+    lotBoxs = (widget.lotBoxs ?? []).toList();
+    boxID = (widget.boxID)!;
   }
 
   @override
@@ -100,7 +108,7 @@ class _NewPageState extends State<AddBox> {
       appBar: AppBar(
         elevation: 0,
         backgroundColor: Myconstant.dark,
-        title: Text("History"),
+        title: Text("Lot ยา ที่ pack แล้ว"),
       ),
       body: Container(
         child: ListView(
@@ -111,10 +119,10 @@ class _NewPageState extends State<AddBox> {
   }
 
   Future refreshSceen() async {
-    List<Box>? boxrefersh = await Box.getBox();
+    List<Lot>? lotBoxrefersh = await Lot.getLot();
     setState(() {
       try {
-        boxs = boxrefersh ?? [];
+        lotBoxs = lotBoxrefersh ?? [];
       } catch (e) {
         print(e);
       }

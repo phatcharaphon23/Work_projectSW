@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:packing/TabBar/bottom_nav_bar.dart';
+import 'package:packing/models/box.dart';
+import 'package:packing/models/formula_detail.dart';
+import 'package:packing/models/lot.dart';
 import 'package:packing/states/PackagingScreen/home_packaging.dart';
+import 'package:packing/states/check_formula_screen.dart';
 import 'package:packing/states/history_screen.dart';
 import 'package:packing/states/information_screen.dart';
 import 'package:packing/utility/my_constant.dart';
@@ -76,11 +80,14 @@ class HomeScreen extends StatelessWidget {
                       mainAxisSpacing: 25,
                       children: <Widget>[
                         TextButton(
-                          onPressed: () {
+                          onPressed: () async {
+                            List <Lot>? lots = await Lot.getLot();
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => PackagingHome(),
+                                builder: (context) => LotPage(
+                                  lots: lots,
+                                ),
                               ),
                             );
                           },
@@ -101,12 +108,12 @@ class HomeScreen extends StatelessWidget {
                         TextButton(
                           onPressed: () async{
                             //get history
-                            List<History>? historys =  await History.getHistory();
+                            List<Box>? boxs =  await Box.getBox();
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => HistoryScreen(
-                                  historys: historys,
+                                builder: (context) => AddBox(
+                                  boxs: boxs,
                                 ),
                               ),
                             );
@@ -126,11 +133,15 @@ class HomeScreen extends StatelessWidget {
                           ),
                         ),
                         TextButton(
-                          onPressed: () {
+                          onPressed: () async{
+                            List <ForMula>?  formulas = await ForMula.getForMula(); 
+
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => InformationScreen(),
+                                builder: (context) =>  ForMulaScreen(
+                                  formulas:formulas,
+                                ),
                               ),
                             );
                           },

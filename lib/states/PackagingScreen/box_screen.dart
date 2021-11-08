@@ -1,84 +1,41 @@
 import 'package:flutter/material.dart';
+import 'package:packing/models/box_detail.dart';
 import 'package:packing/models/box.dart';
-import 'package:packing/models/historys.dart';
-import 'package:packing/models/lot.dart';
-import 'package:packing/models/lot_detail.dart';
-import 'package:packing/states/PackagingScreen/formula_in_lot.dart';
-import 'package:packing/states/PackagingScreen/box_screen.dart';
-import 'package:packing/states/PackagingScreen/pick_formula_in_lot.dart';
-import 'package:packing/states/packaging_screengg.dart';
+import 'package:packing/states/PackagingScreen/box_detail_screen.dart';
+// import 'package:packing/models/box_detail.dart';
+// import 'package:packing/states/PackagingScreen/formula_in_box.dart';
+// import 'package:packing/states/PackagingScreen/pick_formula_in_box.dart';
 import 'package:packing/utility/my_constant.dart';
 
-class LotPage extends StatefulWidget {
-  final List<Lot>? lots;
-  LotPage({
-    this.lots,
+class AddBox extends StatefulWidget {
+  final List<Box>? boxs;
+  AddBox({
+    this.boxs,
   });
 
   @override
   _NewPageState createState() => _NewPageState();
 }
 
-class _NewPageState extends State<LotPage> {
-  List<Lot> lots = [];
+class _NewPageState extends State<AddBox> {
+  List<Box> boxs = [];
   List<ListTile> getListTile() {
     List<ListTile> list = [];
-    for (var lot in lots) {
-      if (lot.status == "CREATED") {
+    for (var box in boxs) {
+      if (box.status == "CREATED") {
         var l = ListTile(
-          title: Text(lot.productLot!),
-          subtitle: Text(lot.status!),
-          trailing: IconButton(
-              onPressed: () {
-                showDialog(
-                  context: context,
-                  builder: (BuildContext context) => AlertDialog(
-                    title: Text('Details'),
-                    backgroundColor: Colors.white,
-                    content: SizedBox(
-                      width: 400.0,
-                      height: 100.0,
-                      child: Column(
-                        children: [Text("ยืนยัน lot")],
-                      ),
-                    ),
-                    actions: <Widget>[
-                      TextButton(
-                        child: Text('Add'),
-                        style: TextButton.styleFrom(
-                          primary: Colors.white,
-                          backgroundColor: Colors.green,
-                        ),
-                        onPressed: () async {
-                          Navigator.pop(context);
-                          await Lot.confirmLot(lot.id!);
-                          refreshSceen();
-                        },
-                      ),
-                      TextButton(
-                          child: Text('Close'),
-                          style: TextButton.styleFrom(
-                            primary: Colors.white,
-                            backgroundColor: Colors.blueGrey,
-                          ),
-                          onPressed: () {
-                            Navigator.pop(context);
-                          }),
-                    ],
-                  ),
-                );
-              },
-              icon: Icon(Icons.save)),
+          title: Text(box.boxNo!),
+          subtitle: Text(box.status!),
+          trailing:  Text(box.quantity.toString()),
           onTap: () async {
-            List<LotDetail>? lotDetails = await LotDetail.getLotDetail(lot.id!);
-
+            List<BoxDetail>? boxdetails = await BoxDetail.getBoxDetail(box.id!);
             Navigator.push(
                 context,
                 MaterialPageRoute(
-                    builder: (context) => FormulaInLotScreen(
-                          lotID: lot.id!,
-                          lotNo: lot.productLot!,
-                          lotDetails: lotDetails,
+                    builder: (context) => BoxDetailScreen(
+                          boxdetails: boxdetails,
+                          boxID: box.id,
+                          boxNo: box.boxNo,
                         )));
           },
           // onTap: () {
@@ -133,7 +90,7 @@ class _NewPageState extends State<LotPage> {
   @override
   void initState() {
     super.initState();
-    lots = (widget.lots ?? []).toList();
+    boxs = (widget.boxs ?? []).toList();
   }
 
   @override
@@ -142,7 +99,7 @@ class _NewPageState extends State<LotPage> {
       appBar: AppBar(
         elevation: 0,
         backgroundColor: Myconstant.dark,
-        title: Text("Lot ยา"),
+        title: Text("Box ยา"),
         actions: [
           IconButton(
               onPressed: () async {
@@ -155,7 +112,7 @@ class _NewPageState extends State<LotPage> {
                       width: 400.0,
                       height: 100.0,
                       child: Column(
-                        children: [Text("สร้างกล่อง")],
+                        children: [Text("สร้างกล่องยา")],
                       ),
                     ),
                     actions: <Widget>[
@@ -163,11 +120,12 @@ class _NewPageState extends State<LotPage> {
                           child: Text('Add'),
                           style: TextButton.styleFrom(
                             primary: Colors.white,
-                            backgroundColor: Colors.blueGrey,
+                            backgroundColor: Colors.green,
                           ),
                           onPressed: () async {
-                            await Lot.addLot();
                             Navigator.pop(context);
+                            await Box.addBox();
+                            refreshSceen();
                           }),
                       TextButton(
                           child: Text('Cancel'),
@@ -183,12 +141,6 @@ class _NewPageState extends State<LotPage> {
                 );
               },
               icon: Icon(Icons.add)),
-              IconButton(onPressed: () async{
-                List <Box>? boxs = await Box.getBox();
-                Navigator.push(context, MaterialPageRoute(builder: (context) => AddBox(
-                  boxs: boxs,
-                )));
-              }, icon: Icon(Icons.outbox))
         ],
       ),
       body: Container(
@@ -200,10 +152,10 @@ class _NewPageState extends State<LotPage> {
   }
 
   Future refreshSceen() async {
-    List<Lot>? lotrefersh = await Lot.getLot();
+    List<Box>? boxrefersh = await Box.getBox();
     setState(() {
       try {
-        lots = lotrefersh ?? [];
+        boxs = boxrefersh ?? [];
       } catch (e) {
         print(e);
       }

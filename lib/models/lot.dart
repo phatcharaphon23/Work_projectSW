@@ -1,17 +1,18 @@
 import 'dart:convert';
 import 'package:packing/services/networking.dart';
 
-class History {
+class Lot {
   final int? id;
+  final String? formulaID;
   final String? productName;
   final String? productModel;
   final String? formulaCode;
   final double? quantity;
   final String? productLot;
   final String? status;
-  final int? formulaID;
 
-  History({
+  Lot({
+    this.formulaID,
     this.id,
     this.productName,
     this.productModel,
@@ -19,86 +20,80 @@ class History {
     this.quantity,
     this.productLot,
     this.status,
-    this.formulaID,
   });
 
-  static Future<List<History>?> getHistory() async {
-    NetworkHelper networkHelper = NetworkHelper('historys', {});
+  static Future<List<Lot>?> getLot() async {
+    NetworkHelper networkHelper = NetworkHelper('lots', {});
 
-    List<History> historys = [];
+    List<Lot> historys = [];
     var json = await networkHelper.getData();
     if (json != null && json['error'] == false) {
-      for (Map t in json['historys']) {
-        History history = History(
-            id: int.parse(t['id']),
-            productName: t['product_name'],
-            productModel: t['product_model'],
-            formulaCode: t['formulas_code'],
-            quantity: double.parse(
-              t['quantity'].toString(),
-            ),
-            formulaID: int.parse(t['formula_id']),
-            status: t['status']);
-
+      for (Map t in json['lots']) {
+        Lot history = Lot(
+          id: int.parse(t['id']),
+          productLot: t['lot_no'],
+          status: t['status'],
+        );
         historys.add(history);
       }
       return historys;
     }
     return null;
   }
-  // static Future<List<History>?> getHistoryID(String username) async {
+
+  // static Future<List<Lot>?> getLotID(String username) async {
   //   NetworkHelper networkHelper =
   //       NetworkHelper('merge_packs', {'username': username});
 
-  //   List<History> Historys = [];
-  //   print(Historys);
+  //   List<Lot> Lots = [];
+  //   print(Lots);
   //   var json = await networkHelper.getData();
   //   if (json != null && json['error'] == false) {
   //     for (Map t in json['merge_packs']) {
-  //       History History = History(
+  //       Lot Lot = Lot(
   //         id: 1,
   //         mergeNo: t['merge_no'],
   //         productCode: t['part_code'],
   //         mergestatus: t['merge_status'],
   //         labelNO: t['label_no'],
   //       );
-  //       Historys.add(History);
+  //       Lots.add(Lot);
   //     }
-  //     return Historys;
+  //     return Lots;
   //   }
   //   return null;
   // }
 
-  // static Future<List<History>?> upStatusHistory(
-  //     User user, int HistoryID, String mergestatus) async {
+  // static Future<List<Lot>?> upStatusLot(
+  //     User user, int LotID, String mergestatus) async {
   //   NetworkHelper networkHelper = NetworkHelper('up_status_merge_packs', {});
 
-  //   List<History> Historys = [];
+  //   List<Lot> Lots = [];
   //   var json = await networkHelper.postData(jsonEncode(<String, String>{
   //     'user_id': user.userID.toString(),
-  //     'id': HistoryID.toString(),
+  //     'id': LotID.toString(),
   //     'merge_status': mergestatus,
   //   }));
 
   //   if (json != null && json['error'] == false) {
   //     for (Map t in json['merge_packs']) {
-  //       History History = History(
+  //       Lot Lot = Lot(
   //         id: int.parse(t['id']),
   //         mergeNo: t['merge_no'],
   //         mergestatus: t['merge_status'],
   //         productID: int.parse(t['product_id']),
   //       );
-  //       Historys.add(History);
+  //       Lots.add(Lot);
   //     }
-  //     return Historys;
+  //     return Lots;
   //   }
   // }
 
-  // static Future<List<History>?> upStatusMerging(
+  // static Future<List<Lot>?> upStatusMerging(
   //     User user, String mergeNo, String mergestatus) async {
   //   NetworkHelper networkHelper = NetworkHelper('up_status_mergings', {});
 
-  //   List<History> Historys = [];
+  //   List<Lot> Lots = [];
   //   var json = await networkHelper.postData(jsonEncode(<String, String>{
   //     'user_id': user.userID.toString(),
   //     'merge_no': mergeNo,
@@ -107,41 +102,41 @@ class History {
 
   //   if (json != null && json['error'] == false) {
   //     for (Map t in json['merge_packs']) {
-  //       History History = History(
+  //       Lot Lot = Lot(
   //         id: int.parse(t['id']),
   //         mergeNo: t['merge_no'],
   //         mergestatus: t['merge_status'],
   //         productID: int.parse(t['product_id']),
   //       );
-  //       Historys.add(History);
+  //       Lots.add(Lot);
   //     }
-  //     return Historys;
+  //     return Lots;
   //   }
   // }
 
-  // static Future<History?> checkHistoryID(
-  //     User user, int productID, int HistoryID) async {
+  // static Future<Lot?> checkLotID(
+  //     User user, int productID, int LotID) async {
   //   NetworkHelper networkHelper = NetworkHelper('check_merge_pack_id', {});
   //   var json = await networkHelper.postData(jsonEncode(<String, String>{
   //     'user_id': user.userID.toString(),
   //     'product_id': productID.toString(),
-  //     'id': HistoryID.toString(),
+  //     'id': LotID.toString(),
   //   }));
   //   print("loginuser");
   //   if (json != null && json['error'] == false) {
   //     Map u = json['merge_packs'];
-  //     History History = History(
+  //     Lot Lot = Lot(
   //       id: int.parse(u["id"]),
   //       mergeNo: u['merge_no'],
   //       productID: int.parse(u["product_id"]),
   //       mergestatus: u["merge_status"],
   //     );
-  //     return History;
+  //     return Lot;
   //   }
   //   return null;
   // }
 
-  // static Future<History?> addHistory(User user, int productID) async {
+  // static Future<Lot?> addLot(User user, int productID) async {
   //   NetworkHelper networkHelper = NetworkHelper('add_merge_pack', {});
   //   var json = await networkHelper.postData(jsonEncode(<String, String>{
   //     'user_id': user.userID.toString(),
@@ -149,57 +144,57 @@ class History {
   //   }));
   //   if (json != null) {
   //     Map u = json;
-  //     History History = History(
+  //     Lot Lot = Lot(
   //       id: int.parse(u["id"]),
   //       mergeNo: u['merge_no'],
   //       productID: int.parse(u["product_id"]),
   //       mergestatus: u["merge_status"],
   //     );
-  //     return History;
+  //     return Lot;
   //   }
   //   return null;
   // }
 
-  // static Future<List<History>?> completeHistory(
-  //     User user, List labels, int HistoryID) async {
+  // static Future<List<Lot>?> completeLot(
+  //     User user, List labels, int LotID) async {
   //   NetworkHelper networkHelper = NetworkHelper('complete_merge_pack', {});
   //   String data = "";
   //   for (String i in labels) {
   //     data += "#" + i;
   //   }
 
-  //   List<History> Historys = [];
+  //   List<Lot> Lots = [];
   //   var json = await networkHelper.postData(jsonEncode(<String, String>{
   //     'user_id': user.userID.toString(),
   //     'labels': data,
-  //     'merge_pack_id': HistoryID.toString()
+  //     'merge_pack_id': LotID.toString()
   //   }));
 
   //   if (json != null && json['error'] == false) {
   //     for (Map t in json['merge_packs']) {
-  //       History History = History(
+  //       Lot Lot = Lot(
   //         id: int.parse(t['id']),
   //         mergeNo: t['merge_no'],
   //         mergestatus: t['merge_status'],
   //         productID: int.parse(t['product_id']),
   //         productCode: t['part_code'],
   //       );
-  //       Historys.add(History);
+  //       Lots.add(Lot);
   //     }
-  //     return Historys;
+  //     return Lots;
   //   }
   // }
 
-  //  static Future<List<History>?> getHistorysID() async {
+  //  static Future<List<Lot>?> getLotsID() async {
   //   NetworkHelper networkHelper =
   //       NetworkHelper('historys', {});
 
-  //   List<History> historys = [];
+  //   List<Lot> historys = [];
   //   print(historys);
   //   var json = await networkHelper.getData();
   //   if (json != null && json['error'] == false) {
   //     for (Map t in json['historys']) {
-  //       History history = History(
+  //       Lot history = Lot(
   //         id: int.parse(t['id']) ,
   //         history_no: t['history_no'],
   //       );
@@ -210,20 +205,37 @@ class History {
   //   return null;
   // }
 
-  static Future<History?> addHistory(String formulaCode) async {
-    NetworkHelper networkHelper = NetworkHelper('add_history', {});
-    var json = await networkHelper.postData(jsonEncode(<String, String>{
-      'formular_code': formulaCode.toString(),
-    }));
+
+  static Future<Lot?> addLot() async {
+    NetworkHelper networkHelper = NetworkHelper('add_lot', {});
+    var json = await networkHelper.postData(jsonEncode(<String, String>{}));
     if (json != null) {
-      for (Map u in json['historys']) {
-        History history = History(
+      for (Map u in json['lots']) {
+        Lot lot = Lot(
           id: int.parse(u['id']),
           // history_no: u['history_no'],
         );
-        return history;
+        return lot;
       }
     }
     return null;
+  }
+
+  static Future<Lot?> addFormulaInLot(int id, int lotID, int historyID) async {
+    NetworkHelper networkHelper = NetworkHelper('add_formula_in_lot', {});
+    var json = await networkHelper.postData(jsonEncode(<String, String>{
+      'formula_id': id.toString(),
+      'lot_id': lotID.toString(),
+      'history_id': historyID.toString(),
+    }));
+    
+  }
+
+  static Future<Lot?> confirmLot(int lotID) async {
+    NetworkHelper networkHelper = NetworkHelper('confirm_lot', {});
+    var json = await networkHelper.postData(jsonEncode(<String, String>{
+      'id': lotID.toString(),
+    }));
+    
   }
 }

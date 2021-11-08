@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:packing/models/historys.dart';
 import 'package:packing/models/lot.dart';
 import 'package:packing/utility/my_constant.dart';
 
-class DataPage extends StatefulWidget {
+class LotPage extends StatefulWidget {
   final List<Lot>? lot;
-  DataPage({
+  LotPage({
     this.lot,
   });
 
@@ -12,7 +13,7 @@ class DataPage extends StatefulWidget {
   _NewPageState createState() => _NewPageState();
 }
 
-class _NewPageState extends State<DataPage> {
+class _NewPageState extends State<LotPage> {
   List<Lot> lot = [];
   List<ListTile> getListTile() {
     List<ListTile> list = [];

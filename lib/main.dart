@@ -21,7 +21,7 @@ final Map<String, WidgetBuilder> map = {
   '/profile': (BuildContext context) => ProfileScreen(),
   '/check_status_screen': (BuildContext context) => CheckStatusScreen(),
   '/scanner_screen': (BuildContext context) => ScannerScreen(),
-  '/home_packaging': (BuildContext context) => PackagingHome(),
+  '/home_packaging': (BuildContext context) => LotPage(),
 };
 
 String? initlalRoute;
